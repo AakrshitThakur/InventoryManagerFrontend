@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --PrussianBlueColor: rgb(1, 51, 87);
+  --TangerineColor: rgb(244, 147, 13);
+  --DarkBorder: 1px solid rgba(0, 0, 0, 0.15);
+  --LightBorder: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.TangerineColor {
+  background-color: var(--TangerineColor);
+}
+.PrussianBlueColor {
+  background-color: var(--PrussianBlueColor);
+}

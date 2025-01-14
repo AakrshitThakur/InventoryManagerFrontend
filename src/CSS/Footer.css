@@ -1,0 +1,6 @@
+.DarkFooter {
+  border-top: var(--LightBorder);
+}
+.AboutUsFooter p {
+  font-size: 0.65rem;
+}

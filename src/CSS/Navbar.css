@@ -1,0 +1,33 @@
+.NavbarLight nav {
+  border-bottom: var(--DarkBorder);
+}
+
+.NavbarDark nav {
+  border-bottom: var(--LightBorder);
+}
+
+.MenuBtn:hover {
+  color: var(--PrussianBlueColor);
+}
+
+#mobile-menu {
+  animation: MobileMenu 1s forwards;
+}
+
+@keyframes MobileMenu {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}

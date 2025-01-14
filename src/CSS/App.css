@@ -1,0 +1,15 @@
+* {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.BoxShadowAtLight {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.BoxAtDark {
+  border: var(--LightBorder);
+}
+.BoxAtLight {
+  border: var(--DarkBorder);
+}
