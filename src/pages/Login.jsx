@@ -106,7 +106,9 @@ export default function Login() {
             </h2>
             <input
               className={
-                IsDarkModeActive ? "BoxAtDark text-black" : "BoxAtLight"
+                IsDarkModeActive
+                  ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
+                  : "BoxAtLight text-xs md:text-sm lg:text-md"
               }
               type="password"
               name="psd"
@@ -128,7 +130,7 @@ export default function Login() {
             )}
           </div>
         </form>
-        <div className="text-sm md:text-md lg:text-lg">
+        <div className="">
           <div>
             <p className="text-xs md:text-sm lg:text-md">
               Don't have any account?{" "}
