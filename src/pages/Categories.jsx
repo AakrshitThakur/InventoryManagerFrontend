@@ -83,7 +83,7 @@ export default function Categories() {
 
   return (
     // flex flex-col justify-center items-center
-    <div className="stockroom flex-1 my-2 px-3">
+    <div className="stockroom flex-1 my-2 p-1">
       {MsgObj && <Msg msg={MsgObj.msg} status={MsgObj.status} />}
       <div className="flex flex-col justify-center items-center">
         <div

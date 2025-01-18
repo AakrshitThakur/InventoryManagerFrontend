@@ -89,12 +89,12 @@ export default function CreateShop() {
   }, []);
 
   return (
-    <div className="CreateShop flex-1 flex flex-col justify-center items-center my-2 sm:my-3 md:my-4">
+    <div className="CreateShop flex-1 flex flex-col justify-center items-center my-1 sm:my-2 md:my-3">
       <div
         className={
           IsDarkMode
-            ? "BoxAtDark lg:w-2/5 p-2 sm:p-3 md:p-4 rounded"
-            : "BoxShadowAtLight lg:w-2/5 p-2 sm:p-3 md:p-4 rounded"
+            ? "BoxAtDark lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
+            : "BoxShadowAtLight lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
