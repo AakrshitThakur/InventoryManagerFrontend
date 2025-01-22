@@ -1,0 +1,7 @@
+.Toastify__toast--error .Toastify__toast-icon svg {
+  fill: black !important; /* Changes the icon color */
+}
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: black !important; /* Changes the icon color */
+}
+

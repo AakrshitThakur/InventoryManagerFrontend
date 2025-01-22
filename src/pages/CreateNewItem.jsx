@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode.js";
-import Msg from "../components/Msg.jsx";
 import LoadingBarAnimation from "../components/LoadingBarAnimation.jsx";
 import axios from "axios";
 import "../CSS/NewCategory.css";
@@ -122,7 +121,6 @@ export default function NewItem() {
 
   return (
     <div className="NewItem flex-1">
-      {MsgObj && <Msg msg={MsgObj.msg} status={MsgObj.status} />}
       <div className="flex flex-col justify-center items-center p-1 md:p-3">
         <div
           className={

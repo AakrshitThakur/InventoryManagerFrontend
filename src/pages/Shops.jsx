@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode.js";
-import Msg from "../components/Msg.jsx";
-import axios from "axios";
+import ToastMsg from "../components/ToastMsg.jsx";
 import "../CSS/LoadingPageSpinner.css";
+import axios from "axios";
+
 
 let inc = 1;
 let MsgObj = undefined;
@@ -11,6 +12,8 @@ export default function Shops() {
   // Using the useLocation() hook to retrieve statefull data from useNavigate() hook
   const location = useLocation();
   const navigate = useNavigate();
+
+  console.log(location.state);
 
   // Have to set this variable initially because useEffect() will be ultimately going to change navigation state
   location.state && (MsgObj = location.state);
@@ -59,7 +62,7 @@ export default function Shops() {
 
   return (
     <div className="shops flex-1 p-1">
-      {MsgObj && <Msg msg={MsgObj.msg} status={MsgObj.status} />}
+      {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
 
       {AllShops.length == 0 ? (
         <div className="grid place-items-center h-screen">

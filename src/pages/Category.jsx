@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
-import Msg from "../components/Msg";
+import ToastMsg from "../components/ToastMsg";
 import axios from "axios";
 import "../CSS/category.css";
 
@@ -86,7 +86,7 @@ export default function Category() {
 
   return (
     <div className="category flex-1 p-1">
-      {MsgObj && <Msg msg={MsgObj.msg} status={MsgObj.status} />}
+      {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
       <div className="flex flex-col justify-center items-center m-1">
         <div
           className={

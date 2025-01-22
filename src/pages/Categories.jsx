@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
-import Msg from "../components/Msg";
+import ToastMsg from "../components/ToastMsg";
 import axios from "axios";
 import "../CSS/Stockroom.css";
 
@@ -84,7 +84,7 @@ export default function Categories() {
   return (
     // flex flex-col justify-center items-center
     <div className="stockroom flex-1 my-2 p-1">
-      {MsgObj && <Msg msg={MsgObj.msg} status={MsgObj.status} />}
+      {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
       <div className="flex flex-col justify-center items-center">
         <div
           className={
