@@ -4,12 +4,21 @@ export default function DarkMode() {
   // Toggle DarkMode
   const [DarkMode, SetDarkMode] = useState(false);
 
+  // Update the state
+  useEffect(() => {
+    const ModeStorage = localStorage.getItem("DarkMode") === "true";
+    SetDarkMode(ModeStorage);
+  }, []);
+
   // Main logic behind toggling of dark and light mode
+  // toggle local Storage item
   useEffect(() => {
     if (DarkMode) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("DarkMode", "true");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("DarkMode", "false");
     }
   }, [DarkMode]);
 
