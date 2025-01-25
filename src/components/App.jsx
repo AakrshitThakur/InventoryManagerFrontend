@@ -81,6 +81,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/GeneralError" element={<GeneralError />} />
+
+          {/* Navigate to '/GeneralError' if no path matches the URL. */}
+          <Route path="*" element={<GeneralError PageNotFoundError={true} />} />
         </Routes>
       </BrowserRouter>
       <Footer />
