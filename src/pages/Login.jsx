@@ -25,7 +25,7 @@ export default function Login() {
       event.preventDefault();
       HandleShowLoadingBar();
       const response = await axios.post(
-        "http://localhost:3000/login",
+        "https://inventorymanagerbackend.onrender.com/login",
         credentials,
         { withCredentials: true }
       );

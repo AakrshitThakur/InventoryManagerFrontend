@@ -31,7 +31,7 @@ export default function Categories() {
     const FetchAPI = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/shops/${id}/stockroom/categories`,
+          `https://inventorymanagerbackend.onrender.com/shops/${id}/stockroom/categories`,
           { withCredentials: true }
         );
         if (response.data.AuthenticationError) {

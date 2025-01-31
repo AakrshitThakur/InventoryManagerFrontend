@@ -21,7 +21,7 @@ export default function Shops() {
   useEffect(() => {
     const FetchAPI = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/shops");
+        const response = await axios.get("https://inventorymanagerbackend.onrender.com/shops");
         if (response.data.GeneralError) {
           navigate("/GeneralError", {
             state: {

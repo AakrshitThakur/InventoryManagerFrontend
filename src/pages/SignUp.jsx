@@ -56,7 +56,7 @@ export default function SignUp() {
         HandleShowLoadingBar();
         if (ShowOTP_box) {
           const response = await axios.post(
-            "http://localhost:3000/VerifyOTP",
+            "https://inventorymanagerbackend.onrender.com/VerifyOTP",
             { OTP: OTP },
             { withCredentials: true }
           );
@@ -91,7 +91,7 @@ export default function SignUp() {
         } else {
           // Sending credentials to the server
           const response = await axios.post(
-            "http://localhost:3000/signup",
+            "https://inventorymanagerbackend.onrender.com/signup",
             credentials,
             { withCredentials: true }
           );
