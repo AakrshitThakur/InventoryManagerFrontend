@@ -6,8 +6,11 @@
   border-bottom: var(--LightBorder);
 }
 
-.MenuBtn:hover {
+.MenuBtnLight:hover {
   color: var(--PrussianBlueColor);
+}
+.MenuBtnDark:hover {
+  color: var(--TangerineColor);
 }
 
 #mobile-menu {

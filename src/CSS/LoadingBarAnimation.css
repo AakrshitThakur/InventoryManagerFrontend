@@ -1,6 +1,9 @@
-.LoadingBarAnimation div {
-  /* font-size: 0.5rem; */
+.LoadingBarAnimationLight div {
   background-color: var(--PrussianBlueColor);
+  animation: LoadingBarAnimation 3s infinite;
+}
+.LoadingBarAnimationDark div {
+  background-color: var(--TangerineColor);
   animation: LoadingBarAnimation 3s infinite;
 }
 

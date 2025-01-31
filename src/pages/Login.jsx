@@ -10,7 +10,7 @@ export default function Login() {
   const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
   const [credentials, SetCredentials] = useState({
-    username: "",
+    email: "",
     psd: "",
   });
   // To navigate user to the "/shops" route
@@ -25,16 +25,16 @@ export default function Login() {
       event.preventDefault();
       HandleShowLoadingBar();
       const response = await axios.post(
-        "https://inventorymanagerbackend.onrender.com/login",
+        "http://localhost:3000/login",
         credentials,
         { withCredentials: true }
       );
 
       // Using state property to send msg to "/shops" route
-      if (response.data.msg == "Incorrect credentials, please try again") {
+      if (response.data.ErrorMsg) {
         const MsgObjToSend = {
-          msg: response.data.msg,
-          status: "error",
+          msg: response.data.ErrorMsg.msg,
+          status: response.data.ErrorMsg.status,
         };
         navigate("/shops", { state: MsgObjToSend });
       } else if (response.data.GeneralError) {
@@ -46,8 +46,8 @@ export default function Login() {
         });
       } else {
         const MsgObjToSend = {
-          msg: response.data.msg,
-          status: "success",
+          msg: response.data.SuccessMsg.msg,
+          status: response.data.SuccessMsg.status,
         };
         navigate("/shops", { state: MsgObjToSend });
       }
@@ -86,7 +86,7 @@ export default function Login() {
         <form onSubmit={HandleOnSubmit}>
           <div className="mb-1">
             <h2 className="text-lg md:text-xl lg:text-2xl">
-              Enter your username{" "}
+              Enter your email{" "}
             </h2>
             <input
               className={
@@ -94,8 +94,8 @@ export default function Login() {
                   ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
                   : "BoxAtLight text-xs md:text-sm lg:text-md"
               }
-              type="text"
-              name="username"
+              type="email"
+              name="email"
               onChange={HandleOnChange}
               required
             />

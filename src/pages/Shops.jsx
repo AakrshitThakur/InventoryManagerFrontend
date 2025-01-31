@@ -5,7 +5,6 @@ import ToastMsg from "../components/ToastMsg.jsx";
 import "../CSS/LoadingPageSpinner.css";
 import axios from "axios";
 
-
 let inc = 1;
 let MsgObj = undefined;
 export default function Shops() {
@@ -13,25 +12,16 @@ export default function Shops() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location.state);
-
   // Have to set this variable initially because useEffect() will be ultimately going to change navigation state
   location.state && (MsgObj = location.state);
 
   const [AllShops, SetAllShops] = useState([]);
   const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
 
-  // To remove the previous value holded by state of navigation
-  useEffect(() => {
-    navigate(location.pathname, { replace: true });
-  }, [navigate, location.pathname]);
-
   useEffect(() => {
     const FetchAPI = async () => {
       try {
-        const response = await axios.get(
-          "https://inventorymanagerbackend.onrender.com/shops"
-        );
+        const response = await axios.get("http://localhost:3000/shops");
         if (response.data.GeneralError) {
           navigate("/GeneralError", {
             state: {
@@ -59,6 +49,16 @@ export default function Shops() {
     const observer = CheckDarkMode(SetIsDarkModeActive);
     return () => observer.disconnect();
   }, []);
+  useEffect(() => {
+    // To remove the previous value (after 1 sec) holded by state of navigation
+    const timer = setTimeout(() => {
+      MsgObj = undefined;
+    }, 1000);
+    navigate(location.pathname, { replace: true });
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [navigate, location.state]);
 
   return (
     <div className="shops flex-1 p-1">
@@ -66,7 +66,9 @@ export default function Shops() {
 
       {AllShops.length == 0 ? (
         <div className="grid place-items-center h-screen">
-          <span className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}></span>
+          <span
+            className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}
+          ></span>
         </div>
       ) : (
         <>

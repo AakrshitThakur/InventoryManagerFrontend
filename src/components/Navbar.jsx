@@ -82,7 +82,7 @@ export default function Navbar() {
               <button
                 id="menu-button"
                 onClick={ToggleMobileMenu}
-                className="MenuBtn text-gray-700 focus:outline-none"
+                className={IsDarkModeActive ? "MenuBtnDark text-white focus:outline-none" : "MenuBtnLight text-black focus:outline-none"}
               >
                 <svg
                   className="w-6 h-6"

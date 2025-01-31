@@ -21,11 +21,6 @@ export default function Categories() {
   const [categories, SetCategories] = useState([]);
   const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
 
-  // To remove the previous value holded by state of navigation
-  useEffect(() => {
-    navigate(location.pathname, { replace: true });
-  }, [navigate, location.pathname]);
-
   useEffect(() => {
     // Setting observer to check HTML dark class
     const observer = CheckDarkMode(SetIsDarkModeActive);
@@ -36,7 +31,7 @@ export default function Categories() {
     const FetchAPI = async () => {
       try {
         const response = await axios.get(
-          `https://inventorymanagerbackend.onrender.com/shops/${id}/stockroom/categories`,
+          `http://localhost:3000/shops/${id}/stockroom/categories`,
           { withCredentials: true }
         );
         if (response.data.AuthenticationError) {
@@ -80,6 +75,14 @@ export default function Categories() {
     };
     FetchAPI();
   }, []);
+  useEffect(() => {
+    // To remove the previous value (after 1 sec) holded by state of navigation
+    const timer = setTimeout(() => {
+      MsgObj = undefined;
+    }, 1000);
+    navigate(location.pathname, { replace: true });
+    return () => clearTimeout(timer);
+  }, [navigate, location.state]);
 
   return (
     // flex flex-col justify-center items-center
