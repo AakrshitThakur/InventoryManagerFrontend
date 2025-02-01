@@ -21,7 +21,7 @@ let inc = 1;
 export default function GraphAnalyses() {
   const [GraphAnalysesData, SetGraphAnalysesData] = useState([]);
   const [PieChartData, SetPieChartData] = useState({});
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   // Colors needed for pie chart
   const COLORS = ["#013357", "#f4930d"];

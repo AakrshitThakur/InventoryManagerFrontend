@@ -3,7 +3,7 @@ import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 import "../CSS/LoadingBarAnimation.css";
 
 export default function LoadingBarAnimation() {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
   useEffect(() => {
     // Setting observer to check HTML dark class
     const observer = CheckDarkMode(SetIsDarkModeActive);

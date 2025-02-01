@@ -4,7 +4,7 @@ import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 
 let MsgObj = undefined;
 export default function GeneralError({ PageNotFoundError }) {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
   // Using the useLocation() hook to retrieve statefull data from useNavigate() hook
   const location = useLocation();
   const navigate = useNavigate();

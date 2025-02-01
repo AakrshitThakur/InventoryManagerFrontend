@@ -4,16 +4,14 @@ import "../CSS/Navbar.css";
 
 export default function Navbar() {
   // Toggle mobile menu
-  const [IsMobileMenuOpen, SetIsMobileMenuOpen] = useState(false);
+  const [IsMobileMenuOpen, SetIsMobileMenuOpen] = useState(localStorage.getItem("DarkMode") === "true");
 
   const ToggleMobileMenu = () => {
     SetIsMobileMenuOpen(!IsMobileMenuOpen);
   };
 
   // Checking if dark mode is active or not
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(() =>
-    document.documentElement.classList.contains("dark")
-  );
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
   useEffect(() => {
     const observer = new MutationObserver(() => {
       SetIsDarkModeActive(document.documentElement.classList.contains("dark"));

@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "../CSS/ToastMsg.css";
 
 const ToastMsg = ({ msg, status }) => {
-  console.log("Under ToastMsg component");
   useEffect(() => {
     if (status == "success") {
       toast.success(<p className="leading-none md:leading-tight">{msg}</p>, {

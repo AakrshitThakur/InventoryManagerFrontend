@@ -11,7 +11,7 @@ export default function EditShop() {
   const navigate = useNavigate();
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
   const [shop, SetShop] = useState([]);
-  const [IsDarkMode, SetIsDarkMode] = useState(false);
+  const [IsDarkMode, SetIsDarkMode] = useState(localStorage.getItem("DarkMode") === "true");
   const [EditFormData, SetEditFormData] = useState({});
 
   // Matching id from URL using useParams() hook

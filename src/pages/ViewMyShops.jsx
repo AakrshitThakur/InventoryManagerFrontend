@@ -11,7 +11,7 @@ export default function Shops() {
   const navigate = useNavigate();
 
   const [MyShops, SetMyShops] = useState([]);
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   // Getting the reference of MutationObserver obj to observe darkmode class of HTML element
   useEffect(() => {

@@ -4,7 +4,7 @@ import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 import axios from "axios";
 
 export default function ConfirmDeleteShop() {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   const navigate = useNavigate();
   const { id } = useParams();

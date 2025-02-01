@@ -12,7 +12,7 @@ export default function CreateNewCategory() {
     CategoryName: "",
     CategoryDescription: "",
   });
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
 
   const { id } = useParams();

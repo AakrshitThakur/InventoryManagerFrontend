@@ -23,7 +23,7 @@ export default function Category() {
     CategoryDescription: undefined,
     items: [],
   });
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   useEffect(() => {
     // Setting observer to check HTML dark class

@@ -7,7 +7,7 @@ export default function Stockroom() {
   // Matching id from URL using useParams() hook
   const { id } = useParams();
 
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   useEffect(() => {
     // Setting observer to check HTML dark class

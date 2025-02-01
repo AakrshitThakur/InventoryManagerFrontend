@@ -16,7 +16,7 @@ export default function Shops() {
   location.state && (MsgObj = location.state);
 
   const [AllShops, SetAllShops] = useState([]);
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   useEffect(() => {
     const FetchAPI = async () => {

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "../CSS/Footer.css";
 
 export default function Footer() {
-  const [IsDarkMode, SetIsDarkMode] = useState(false);
+  const [IsDarkMode, SetIsDarkMode] = useState(localStorage.getItem("DarkMode") === "true");
   useEffect(() => {
     // Setting observer to check HTML dark class
     const observer = CheckDarkMode(SetIsDarkMode);

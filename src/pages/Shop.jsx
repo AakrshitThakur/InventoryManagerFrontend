@@ -7,7 +7,7 @@ import axios from "axios";
 export default function Shop() {
   const navigate = useNavigate();
   const [shop, SetShop] = useState([]);
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   // Matching id from URL using useParams() hook
   const { id } = useParams();

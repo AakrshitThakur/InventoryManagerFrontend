@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Logout() {
   const navigate = useNavigate();
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
 
   const HandleLogout = async () => {
     try {

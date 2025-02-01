@@ -14,7 +14,7 @@ export default function SignUp() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(false);
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
   const [credentials, SetCredentials] = useState({
     username: "",

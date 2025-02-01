@@ -11,7 +11,7 @@ export default function CreateShop() {
   // To navigate user to the "/shops/:id" route
   const navigate = useNavigate();
 
-  const [IsDarkMode, SetIsDarkMode] = useState(false);
+  const [IsDarkMode, SetIsDarkMode] = useState(localStorage.getItem("DarkMode") === "true");
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
 
   const [CreateFormData, SetCreateFormData] = useState({
