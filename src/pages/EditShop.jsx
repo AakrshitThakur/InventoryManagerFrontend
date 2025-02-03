@@ -11,7 +11,9 @@ export default function EditShop() {
   const navigate = useNavigate();
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
   const [shop, SetShop] = useState([]);
-  const [IsDarkMode, SetIsDarkMode] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkMode, SetIsDarkMode] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   const [EditFormData, SetEditFormData] = useState({});
 
   // Matching id from URL using useParams() hook
@@ -59,7 +61,9 @@ export default function EditShop() {
     // Fetching API data form server
     const FetchAPI = async () => {
       try {
-        const response = await axios.get(`https://inventorymanagerbackend.onrender.com/shops/${id}`);
+        const response = await axios.get(
+          `https://inventorymanagerbackend.onrender.com/shops/${id}`
+        );
         if (response.data.AuthenticationError) {
           // Authentication error
           // Navigate to '/shops' if an authentication verification issue is detected.
@@ -118,12 +122,12 @@ export default function EditShop() {
   }, []);
 
   return (
-    <div className="EditShop flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="EditShop bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-2">
       <div
         className={
           IsDarkMode
-            ? "BoxAtDark lg:w-2/5 p-2 sm:p-3 md:p-4 rounded"
-            : "BoxShadowAtLight lg:w-2/5 p-2 sm:p-3 md:p-4 rounded"
+            ? "BoxAtDark bg-black lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
@@ -138,8 +142,8 @@ export default function EditShop() {
               <input
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="text"
                 name="author"
@@ -179,8 +183,8 @@ export default function EditShop() {
               <input
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="text"
                 name="ShopName"
@@ -196,14 +200,14 @@ export default function EditShop() {
               <textarea
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="description"
                 id=""
                 value={`${EditFormData.description}`}
                 onChange={HandleOnChange}
-                cols="35"
+                rows={5}
               >
                 {EditFormData.description}
               </textarea>
@@ -216,14 +220,14 @@ export default function EditShop() {
               <textarea
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="address"
                 id=""
                 value={`${EditFormData.address}`}
                 onChange={HandleOnChange}
-                cols="35"
+                rows={5}
               >
                 {EditFormData.address}
               </textarea>

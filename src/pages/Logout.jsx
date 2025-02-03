@@ -56,7 +56,7 @@ export default function Logout() {
   }, []);
 
   return (
-    <div className="logout AuthenticationBgImg flex-1 flex flex-col justify-center items-center p-1">
+    <div className="logout bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1">
       <div
         className={
           IsDarkModeActive

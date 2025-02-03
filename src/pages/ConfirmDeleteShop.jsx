@@ -4,7 +4,9 @@ import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 import axios from "axios";
 
 export default function ConfirmDeleteShop() {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -68,12 +70,12 @@ export default function ConfirmDeleteShop() {
   }, []);
 
   return (
-    <div className="ConfirmDeleteShop flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="ConfirmDeleteShop bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-2">
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark p-1 md:p-2 rounded"
-            : "BoxShadowAtLight p-1 md:p-2 rounded"
+            ? "BoxAtDark text-black p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-2 rounded"
         }
       >
         <h1 className="text-2xl md:text-3xl lg:text-4xl mb-1">

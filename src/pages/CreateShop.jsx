@@ -11,7 +11,9 @@ export default function CreateShop() {
   // To navigate user to the "/shops/:id" route
   const navigate = useNavigate();
 
-  const [IsDarkMode, SetIsDarkMode] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkMode, SetIsDarkMode] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
 
   const [CreateFormData, SetCreateFormData] = useState({
@@ -89,12 +91,12 @@ export default function CreateShop() {
   }, []);
 
   return (
-    <div className="CreateShop flex-1 flex flex-col justify-center items-center my-1 sm:my-2 md:my-3">
+    <div className="CreateShop bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1">
       <div
         className={
           IsDarkMode
-            ? "BoxAtDark lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
-            : "BoxShadowAtLight lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
+            ? "BoxAtDark bg-black lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md lg:w-2/5 p-1 sm:p-2 md:p-3 rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
@@ -109,8 +111,8 @@ export default function CreateShop() {
               <input
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="text"
                 name="author"
@@ -125,8 +127,8 @@ export default function CreateShop() {
               <input
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="text"
                 name="ShopName"
@@ -156,12 +158,12 @@ export default function CreateShop() {
               <textarea
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="description"
                 onChange={HandleOnChange}
-                cols="35"
+                rows={5}
               ></textarea>
             </div>
             <div className="mb-1 sm:mb-2">
@@ -171,12 +173,12 @@ export default function CreateShop() {
               <textarea
                 className={
                   IsDarkMode
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="address"
                 onChange={HandleOnChange}
-                cols="35"
+                rows={5}
               ></textarea>
             </div>
             <div>

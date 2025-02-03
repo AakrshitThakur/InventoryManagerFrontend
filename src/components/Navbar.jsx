@@ -28,8 +28,8 @@ export default function Navbar() {
     <header
       className={
         IsDarkModeActive
-          ? "NavbarDark mb-2 sticky top-0 z-50 bg-white dark:bg-black"
-          : "NavbarLight mb-2 sticky top-0 z-50 bg-white dark:bg-black"
+          ? "NavbarDark sticky top-0 z-50 bg-white dark:bg-black"
+          : "NavbarLight sticky top-0 z-50 bg-white dark:bg-black"
       }
     >
       <nav className="p-1 sm:p-2">

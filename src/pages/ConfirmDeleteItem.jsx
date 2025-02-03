@@ -69,7 +69,7 @@ export default function ConfirmDeleteItem() {
   }, []);
 
   return (
-    <div className="ConfirmDeleteItem flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="ConfirmDeleteItem bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-2">
       <div
         className={
           IsDarkModeActive

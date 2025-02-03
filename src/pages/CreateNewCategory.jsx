@@ -85,12 +85,12 @@ export default function CreateNewCategory() {
   }, []);
 
   return (
-    <div className="NewCategory flex-1 flex flex-col justify-center items-center p-1 md:p-3">
+    <div className="NewCategory bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-3">
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark p-1 md:p-3 rounded"
-            : "BoxShadowAtLight p-1 md:p-3 rounded"
+            ? "BoxAtDark bg-black p-1 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-3 rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
@@ -105,8 +105,8 @@ export default function CreateNewCategory() {
               onChange={HandleOnChange}
               className={
                 IsDarkModeActive
-                  ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                  : "BoxAtLight text-xs md:text-sm lg:text-md"
+                  ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                  : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
               }
               type="text"
               name="CategoryName"
@@ -122,14 +122,14 @@ export default function CreateNewCategory() {
             <textarea
               className={
                 IsDarkModeActive
-                  ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                  : "BoxAtLight text-xs md:text-sm lg:text-md"
+                  ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                  : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
               }
               name="CategoryDescription"
               id=""
               value={`${CategoryData.CategoryDescription}`}
               onChange={HandleOnChange}
-              cols="35"
+              rows="5"
             ></textarea>
           </div>
           <div>

@@ -4,7 +4,9 @@ import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 
 let MsgObj = undefined;
 export default function GeneralError({ PageNotFoundError }) {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   // Using the useLocation() hook to retrieve statefull data from useNavigate() hook
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,16 +25,18 @@ export default function GeneralError({ PageNotFoundError }) {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark flex flex-col justify-center items-center p-1 md:p-2 rounded"
-            : "BoxShadowAtLight flex flex-col justify-center items-center p-1 md:p-2 rounded"
+            ? "BoxAtDark flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
+            : "BoxShadowAtLight flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
         }
       >
-        <div className="text-center w-9/12 sm:w-80">
-          <img className="w-full" src="/images/GeneralErrorImg.png" alt="" />
-        </div>
-        <em className="text-center leading-tight text-xs md:text-sm lg:text-md">
+        <em className={IsDarkModeActive ? "text-center leading-none text-xs md:text-sm lg:text-md border-b border-white mb-1" : "text-center leading-none text-xs md:text-sm lg:text-md border-b border-black mb-1"}>
           {PageNotFoundError ? "Oops! Page Not Found" : MsgObj.msg}
         </em>
+        <div>
+        <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
+                <a href={"/shops"}>Go back to landing page</a>
+              </button>
+        </div>
       </div>
     </div>
   );

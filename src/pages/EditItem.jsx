@@ -173,13 +173,13 @@ export default function EditItem() {
   }, []);
 
   return (
-    <div className="NewItem flex-1">
+    <div className="NewItem bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1">
       <div className="flex flex-col justify-center items-center p-1 md:p-3">
         <div
           className={
             IsDarkModeActive
-              ? "BoxAtDark w-3/4 lg:w-2/5 p-1 md:p-3 rounded"
-              : "BoxShadowAtLight w-3/4 lg:w-2/5 p-1 md:p-3 rounded"
+              ? "BoxAtDark bg-black w-3/4 lg:w-2/5 p-1 md:p-3 rounded"
+              : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-3/4 lg:w-2/5 p-1 md:p-3 rounded"
           }
         >
           <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
@@ -194,8 +194,8 @@ export default function EditItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="text"
                 name="ItemName"
@@ -210,14 +210,14 @@ export default function EditItem() {
               <textarea
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="ItemDescription"
                 id=""
                 value={`${EditItemData.ItemDescription}`}
                 onChange={HandleOnChange}
-                cols="35"
+                rows="5"
               ></textarea>
             </div>
             <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
@@ -228,8 +228,8 @@ export default function EditItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-mds"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-mds"
                 }
                 type="number"
                 name="PerItemPurchasePrice"
@@ -244,8 +244,8 @@ export default function EditItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="number"
                 name="PerItemSellingPrice"
@@ -260,8 +260,8 @@ export default function EditItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="number"
                 name="PerItemSellingDiscount"
@@ -276,8 +276,8 @@ export default function EditItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 type="number"
                 name="NoOfItems"
@@ -316,8 +316,8 @@ export default function EditItem() {
               <select
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="StockStatus"
                 value={EditItemData.StockStatus}
@@ -335,8 +335,8 @@ export default function EditItem() {
               <select
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtLight text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="PaymentStatus"
                 value={EditItemData.PaymentStatus}

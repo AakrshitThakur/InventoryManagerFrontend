@@ -155,7 +155,7 @@ export default function SignUp() {
   }, [navigate, location.state]);
 
   return (
-    <div className="SignUp AuthenticationBgImg flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="SignUp bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-2">
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
       <div
         className={
