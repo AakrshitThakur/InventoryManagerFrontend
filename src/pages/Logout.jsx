@@ -5,7 +5,9 @@ import axios from "axios";
 
 export default function Logout() {
   const navigate = useNavigate();
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   const HandleLogout = async () => {
     try {
@@ -54,12 +56,12 @@ export default function Logout() {
   }, []);
 
   return (
-    <div className="logout flex-1 flex flex-col justify-center items-center p-1">
+    <div className="logout AuthenticationBgImg flex-1 flex flex-col justify-center items-center p-1">
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark p-1 md:p-3 rounded"
-            : "BoxShadowAtLight p-1 md:p-3 rounded"
+            ? "BoxAtDark bg-black p-1 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-3 rounded"
         }
       >
         <h1 className="text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2">

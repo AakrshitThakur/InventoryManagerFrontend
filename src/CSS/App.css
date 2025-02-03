@@ -3,6 +3,11 @@
   font-optical-sizing: auto;
 }
 
+.AuthenticationBgImg {
+  background-image: url("/public/images/AuthenticationBgImg.png");
+  background-size: cover; /* Scales the image to cover the entire container */
+}
+
 .BoxShadowAtLight {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }

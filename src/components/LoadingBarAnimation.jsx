@@ -13,7 +13,7 @@ export default function LoadingBarAnimation() {
     <>
       {IsDarkModeActive ? (
         <div className="LoadingBarAnimationDark w-full">
-          <div className="pt-1 ps-1 text-xs text-nowrap text-white rounded">
+          <div className="pt-1 ps-1 text-xs text-nowrap text-black rounded">
             Wait a second...
           </div>
         </div>

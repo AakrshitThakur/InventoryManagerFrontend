@@ -7,8 +7,11 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export default function Login() {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
+  const [ShowPassword, SetShowPassword] = useState(false);
   const [credentials, SetCredentials] = useState({
     email: "",
     psd: "",
@@ -64,6 +67,9 @@ export default function Login() {
   const HandleShowLoadingBar = (event) => {
     SetShowLoadingBar(!ShowLoadingBar);
   };
+  const HandleSetShowPassword = (event) => {
+    SetShowPassword((prev) => !prev);
+  };
 
   useEffect(() => {
     // Setting observer to check HTML dark class
@@ -72,12 +78,12 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="SignUp flex-1 flex flex-col justify-center items-center p-1">
+    <div className="Login AuthenticationBgImg flex-1 flex flex-col justify-center items-center p-1">
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark p-1 md:p-3 rounded"
-            : "BoxShadowAtLight p-1 md:p-3 rounded"
+            ? "BoxAtDark bg-black p-1 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-3 rounded"
         }
       >
         <h1 className="text-2xl md:text-3xl lg:text-4xl mb-2">
@@ -91,8 +97,8 @@ export default function Login() {
             <input
               className={
                 IsDarkModeActive
-                  ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                  : "BoxAtLight text-xs md:text-sm lg:text-md"
+                  ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                  : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
               }
               type="email"
               name="email"
@@ -104,18 +110,35 @@ export default function Login() {
             <h2 className="text-lg md:text-xl lg:text-2xl">
               Enter your password{" "}
             </h2>
-            <input
-              className={
-                IsDarkModeActive
-                  ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
-                  : "BoxAtLight text-xs md:text-sm lg:text-md"
-              }
-              type="password"
-              name="psd"
-              onChange={HandleOnChange}
-              required
-            />
-            <p className="text-xs">{credentials.psd}</p>
+            <div className="flex">
+              <input
+                className={
+                  IsDarkModeActive
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
+                }
+                type={ShowPassword ? "text" : "password"}
+                name="psd"
+                onChange={HandleOnChange}
+                required
+              />
+              <span
+                className="flex justify-normal items-center sm:ml-1 w-4"
+                onClick={HandleSetShowPassword}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="auto"
+                  fill="currentColor"
+                  class="bi bi-eye"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                </svg>
+              </span>
+            </div>
           </div>
           <div>
             {ShowLoadingBar ? (
