@@ -4,7 +4,9 @@ import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 import axios from "axios";
 
 export default function ConfirmDeleteItem() {
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   const navigate = useNavigate();
   const { id, CategoryID, ItemID } = useParams();
@@ -73,8 +75,8 @@ export default function ConfirmDeleteItem() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark p-1 md:p-2 rounded"
-            : "BoxShadowAtLight p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-black p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-2 rounded"
         }
       >
         <h1 className="text-2xl md:text-3xl lg:text-4xl mb-1">

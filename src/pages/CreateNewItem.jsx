@@ -238,7 +238,7 @@ export default function NewItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
+                    ? "BoxAtDark text-xs md:text-sm lg:text-md bg-white text-black"
                     : "BoxAtLight text-xs md:text-sm lg:text-md"
                 }
                 type="file"
@@ -252,8 +252,8 @@ export default function NewItem() {
               <select
                 className={
                   IsDarkModeActive
-                    ? "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
-                    : "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
+                    ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
+                    : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
                 name="StockStatus"
                 value={ItemData.StockStatus}

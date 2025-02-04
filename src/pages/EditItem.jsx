@@ -302,7 +302,7 @@ export default function EditItem() {
                 onChange={HandleOnChange}
                 className={
                   IsDarkModeActive
-                    ? "BoxAtDark text-xs md:text-sm lg:text-md text-black"
+                    ? "BoxAtDark text-xs md:text-sm lg:text-md bg-white text-black"
                     : "BoxAtLight text-xs md:text-sm lg:text-md"
                 }
                 type="file"

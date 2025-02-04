@@ -74,7 +74,7 @@ export default function ConfirmDeleteShop() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark text-black p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-black p-1 md:p-2 rounded"
             : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-2 rounded"
         }
       >
