@@ -23,7 +23,9 @@ export default function Category() {
     CategoryDescription: undefined,
     items: [],
   });
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   useEffect(() => {
     // Setting observer to check HTML dark class
@@ -143,7 +145,7 @@ export default function Category() {
               {category.items.length == 0 ? (
                 <>
                   <li>
-                    <em className="mx-auto leading-tight text-xs md:text-sm lg:text-md">
+                    <em className="mx-auto leading-none text-xs md:text-sm lg:text-md">
                       No items were found in this category. Please create new
                       items or go to a different category.
                     </em>
@@ -165,29 +167,29 @@ export default function Category() {
                       </h2>
                       {/* Aligning image at left and other content on right */}
                       <div className="flex flex-col md:flex md:flex-row">
-                        <div className="my-1 basis-4/12">
+                        <div className="my-1 md:w-1/3">
                           <img
                             className="w-full rounded"
                             src={item.ItemPath}
                             alt=""
                           />
                         </div>
-                        <div className="pt-1 md:pt-0 md:pl-2 basis-8/12">
+                        <div className="pt-1 md:pt-0 md:pl-2 md:w-2/3">
                           <div className="text-nowrap text-xs md:text-sm lg:text-md flex flex-col justify-center">
                             <div>
                               <p className="overflow-hidden">
                                 {item.ItemDescription}
                               </p>
                               <div>
-                                <Link
-                                  to={`/shops/${id}/stockroom/categories/${CategoryID}/${item._id}`}
-                                >
-                                  <div className="sm:mt-1">
+                                <div className="sm:mt-1">
+                                  <Link
+                                    to={`/shops/${id}/stockroom/categories/${CategoryID}/${item._id}`}
+                                  >
                                     <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
                                       View item
                                     </button>
-                                  </div>
-                                </Link>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </div>
