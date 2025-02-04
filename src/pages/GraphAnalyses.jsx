@@ -165,8 +165,8 @@ export default function GraphAnalyses() {
                 }
                 key={inc++}
               >
-                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                  PerItemSellingPrice bargraph
+                <h2 className="text-nowrap leading-none text-lg md:text-xl lg:text-2xl">
+                  Per item purchase price
                 </h2>
                 {IsDarkModeActive ? (
                   <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
@@ -224,8 +224,8 @@ export default function GraphAnalyses() {
                 }
                 key={inc++}
               >
-                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                  PerItemSellingPrice bargraph
+                <h2 className="text-nowrap leading-none text-lg md:text-xl lg:text-2xl">
+                  Per item selling price
                 </h2>
                 {IsDarkModeActive ? (
                   <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
@@ -283,8 +283,8 @@ export default function GraphAnalyses() {
                 }
                 key={inc++}
               >
-                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                  PerItemSellingDiscount bargraph
+                <h2 className="text-nowrap leading-none text-lg md:text-xl lg:text-2xl">
+                  Per item selling discount
                 </h2>
                 {IsDarkModeActive ? (
                   <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
@@ -342,8 +342,8 @@ export default function GraphAnalyses() {
                 }
                 key={inc++}
               >
-                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                  NoOfItems bargraph
+                <h2 className="text-nowrap leading-none text-lg md:text-xl lg:text-2xl">
+                  No of items
                 </h2>
                 {IsDarkModeActive ? (
                   <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
@@ -401,8 +401,8 @@ export default function GraphAnalyses() {
                 }
                 key={inc++}
               >
-                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                  StockStatus piechart
+                <h2 className="text-nowrap leading-none text-lg md:text-xl lg:text-2xl">
+                  Stock status
                 </h2>
                 <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
                   <ResponsiveContainer width="100%">
@@ -439,8 +439,8 @@ export default function GraphAnalyses() {
                 }
                 key={inc++}
               >
-                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                  PaymentStatus piechart
+                <h2 className="text-nowrap leading-none text-lg md:text-xl lg:text-2xl">
+                  Payment status
                 </h2>
                 <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
                   <ResponsiveContainer width="100%">
