@@ -7,7 +7,9 @@ import axios from "axios";
 export default function Shop() {
   const navigate = useNavigate();
   const [shop, SetShop] = useState([]);
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   // Matching id from URL using useParams() hook
   const { id } = useParams();
@@ -71,50 +73,64 @@ export default function Shop() {
   }, []);
 
   return (
-    <div className="shop flex-1 my-1 p-1">
-      {shop.length == 0 ? (
-        <div className="grid place-items-center h-screen">
-          <span className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}></span>
-        </div>
-      ) : (
-        <div className="flex flex-col justify-center items-center">
-          <div
-            className={
-              IsDarkModeActive
-                ? "BoxAtDark w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2 2xl:w-1/2 p-2 md:p-3 rounded"
-                : "BoxShadowAtLight w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2 2xl:w-1/2 p-2 md:p-3 rounded"
-            }
-          >
-            <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-              {shop.ShopName}
-            </h2>
-            <img className="w-full rounded" src={shop.ShopImgURL} alt="" />
-            <p className="text-sm md:text-md lg:text-lg">
-              <b>{shop.author}(owner)</b>
-            </p>
-            <p className="overflow-hidden text-xs md:text-sm lg:text-md">
-              {shop.description}(description)
-            </p>
-            <p className="overflow-hidden text-xs md:text-sm lg:text-md">
-              <address>{shop.address}(address)</address>
-            </p>
-            <div className="flex justify-around mt-1">
-              <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
-                <a href="/shops">View all shops</a>
-              </button>
-              <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 TangerineColor text-black rounded">
-                <a href={`/shops/${shop._id}/edit`}>Edit Shop</a>
-              </button>
-              <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
-                <a href={`/shops/${id}/stockroom`}>Stockroom</a>
-              </button>
-              <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-red-400 text-black rounded">
-                <a href={`/shops/${id}/ConfirmDeleteShop`}>Delete shop</a>
-              </button>
+    <div className="shop flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      <div
+        className={
+          IsDarkModeActive
+            ? "BoxAtDark bg-black w-full sm:w-3/4 md:w-2/3 lg:w-1/2 p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-full sm:w-3/4 md:w-2/3 lg:w-1/2 p-1 md:p-2 rounded"
+        }
+      >
+        {shop.length == 0 ? (
+          <div className="grid place-items-center h-screen">
+            <span
+              className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}
+            ></span>
+          </div>
+        ) : (
+          <div className="flex flex-col justify-center items-center">
+            <div
+              className={
+                IsDarkModeActive
+                  ? "BoxAtDark container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
+                  : "BoxShadowAtLight container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
+              }
+            >
+              <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
+                {shop.ShopName}
+              </h2>
+              <img className="w-full rounded" src={shop.ShopImgURL} alt="" />
+              <p className={IsDarkModeActive ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
+                <b>{shop.author}(owner)</b>
+              </p>
+              <p className={IsDarkModeActive ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
+                {shop.description}{" "}
+                <b className="leading-none">(description)</b>
+              </p>
+              <p className="leading-none text-xs md:text-sm lg:text-md">
+                <address>
+                  {shop.address}{" "}
+                  <b className="leading-none">(address)</b>
+                </address>
+              </p>
+              <div className="flex justify-around mt-1">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
+                  <a href="/shops">View all shops</a>
+                </button>
+                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 TangerineColor text-black rounded">
+                  <a href={`/shops/${shop._id}/edit`}>Edit Shop</a>
+                </button>
+                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
+                  <a href={`/shops/${id}/stockroom`}>Stockroom</a>
+                </button>
+                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-red-400 text-black rounded">
+                  <a href={`/shops/${id}/ConfirmDeleteShop`}>Delete shop</a>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

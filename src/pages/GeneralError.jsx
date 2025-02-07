@@ -21,15 +21,15 @@ export default function GeneralError({ PageNotFoundError }) {
   }, []);
 
   return (
-    <div className="GeneralError flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="GeneralError flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
-            : "BoxShadowAtLight flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
+            ? "BoxAtDark bg-black flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
         }
       >
-        <em className={IsDarkModeActive ? "text-center leading-none text-xs md:text-sm lg:text-md border-b border-white mb-1" : "text-center leading-none text-xs md:text-sm lg:text-md border-b border-black mb-1"}>
+        <em className={IsDarkModeActive ? "text-center leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark mb-1" : "text-center leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight mb-1"}>
           {PageNotFoundError ? "Oops! Page Not Found" : MsgObj.msg}
         </em>
         <div>

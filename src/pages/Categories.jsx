@@ -86,20 +86,19 @@ export default function Categories() {
 
   return (
     // flex flex-col justify-center items-center
-    <div className="stockroom flex-1 my-2 p-1">
+    <div className="Categories flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
-      <div className="flex flex-col justify-center items-center">
         <div
           className={
             IsDarkModeActive
-              ? "BoxAtDark text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
-              : "BoxShadowAtLight text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
+              ? "BoxAtDark bg-black text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
+              : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
           }
         >
           <div>
-            <button className="block w-full text-xs md:text-sm lg:text-md PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+            <button className="block w-full PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
               <a
-                className="w-full text-xs md:text-sm lg:text-md"
+                className="w-full leading-none text-xs md:text-sm lg:text-md"
                 href={`/shops/${id}/stockroom/categories/new`}
               >
                 Create a new category
@@ -107,9 +106,9 @@ export default function Categories() {
             </button>
           </div>
           <div>
-            <button className="block w-full text-xs md:text-sm lg:text-md TangerineColor text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+            <button className="block w-full text-xs md:text-sm lg:text-md bg-red-400 text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
               <a
-                className="w-full text-xs md:text-sm lg:text-md"
+                className="w-full leading-none text-xs md:text-sm lg:text-md"
                 href={`/shops/${id}/stockroom`}
               >
                 Go back
@@ -133,24 +132,23 @@ export default function Categories() {
                 <li
                   className={
                     IsDarkModeActive
-                      ? "BoxAtDark container overflow-hidden mx-auto p-1 md:p-2 mb-1 rounded"
-                      : "BoxAtLight container overflow-hidden mx-auto p-1 md:p-2 mb-1 rounded"
+                      ? "BoxAtDark container HoverOnListsForDark mx-auto p-1 md:p-2 mb-1 rounded"
+                      : "BoxAtLight container HoverOnListsForLight mx-auto p-1 md:p-2 mb-1 rounded"
                   }
                   key={inc++}
                 >
                   <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
                     {category.CategoryName}
                   </h2>
-                  <p className="text-ellipsis overflow-hidden text-xs md:text-sm lg:text-md">
+                  <p className="text-wrap leading-none text-xs md:text-sm lg:text-md">
                     {category.CategoryDescription}
                   </p>
-                  <em className="text-xs">Tab to view</em>
+                  <em className="text-xs leading-none">Tab to view</em>
                 </li>
               </a>
             ))}
           </ul>
         </div>
       </div>
-    </div>
   );
 }

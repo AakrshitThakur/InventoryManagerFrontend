@@ -65,48 +65,70 @@ export default function Shops() {
   }, [navigate, location.state]);
 
   return (
-    <div className="shops flex-1 p-1">
+    <div className="shops flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
 
-      {AllShops.length == 0 ? (
-        <div className="grid place-items-center h-screen">
-          <span
-            className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}
-          ></span>
-        </div>
-      ) : (
-        <>
-          <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2 md:mb-3">
-            Viewing All Shops
-          </h1>
-          <ul>
-            {AllShops.map((shop) => (
-              <li
-                className={
-                  IsDarkModeActive
-                    ? "BoxAtDark container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
-                    : "BoxShadowAtLight container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
-                }
-                key={inc++}
-              >
-                <h2 className="text-lg md:text-xl lg:text-2xl">
-                  {shop.ShopName}
-                </h2>
-                {/* Aligning image at left and other content on right */}
-                <div className="flex flex-col md:flex md:flex-row">
-                  <div className="my-1 md:w-1/3">
-                    <img
-                      className="w-full rounded"
-                      src={shop.ShopImgURL}
-                      alt=""
-                    />
-                  </div>
-                  <div className="pt-1 md:pt-0 md:pl-2 md:w-2/3">
-                    <div className="text-nowrap text-xs md:text-sm lg:text-md">
+      <div
+        className={
+          IsDarkModeActive
+            ? "BoxAtDark bg-black w-2/3 p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-2/3 p-1 md:p-2 rounded"
+        }
+      >
+        {AllShops.length == 0 ? (
+          <div className="grid place-items-center h-screen">
+            <span
+              className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}
+            ></span>
+          </div>
+        ) : (
+          <>
+            <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2 md:mb-3">
+              Viewing All Shops
+            </h1>
+            <ul>
+              {AllShops.map((shop) => (
+                <li
+                  className={
+                    IsDarkModeActive
+                      ? "BoxAtDark container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
+                      : "BoxShadowAtLight container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
+                  }
+                  key={inc++}
+                >
+                  <h2 className="text-lg md:text-xl lg:text-2xl">
+                    {shop.ShopName}
+                  </h2>
+                  {/* Aligning image at left and other content on right */}
+                  <div className="flex flex-col md:flex md:flex-row">
+                    <div className="my-1 md:w-1/3">
+                      <img
+                        className="w-full rounded"
+                        src={shop.ShopImgURL}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center pt-1 md:pt-0 md:pl-2 md:w-2/3">
                       <div>
-                        <p className="overflow-hidden">{shop.description}</p>
-                        <div>
-                          <address className="overflow-hidden">
+                        <div
+                          className={
+                            IsDarkModeActive
+                              ? "BorderBottomAtDark border-b"
+                              : "BorderBottomAtLight border-b"
+                          }
+                        >
+                          <p className="text-wrap leading-none text-xs md:text-sm lg:text-md">
+                            {shop.description}
+                          </p>
+                        </div>
+                        <div
+                          className={
+                            IsDarkModeActive
+                              ? "BorderBottomAtDark border-b"
+                              : "BorderBottomAtLight border-b"
+                          }
+                        >
+                          <address className="text-wrap leading-none text-xs md:text-sm lg:text-md">
                             {shop.address}
                           </address>
                         </div>
@@ -122,12 +144,12 @@ export default function Shops() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     </div>
   );
 }
