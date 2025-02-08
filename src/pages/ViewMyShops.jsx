@@ -64,8 +64,8 @@ export default function Shops() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black w-2/3 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-2/3 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-black w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
         }
       >
         {MyShops.length != 0 ? (

@@ -20,15 +20,15 @@ export default function Stockroom() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
+            ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-3">
           Stockroom
         </h1>
         <div>
-          <button className="block w-full text-xs md:text-sm lg:text-md PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+          <button className="block w-full text-xs md:text-sm lg:text-md TangerineColor text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
             <a className="w-full" href={`/shops/${id}/stockroom/categories`}>
               View categories
             </a>

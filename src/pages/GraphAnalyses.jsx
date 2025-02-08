@@ -119,8 +119,8 @@ export default function GraphAnalyses() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black w-full sm:w-3/4 md:w-2/3 lg:w-1/2 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-full sm:w-3/4 md:w-2/3 lg:w-1/2 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-black w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
         }
       >
         {GraphAnalysesData.length == 0 ? (

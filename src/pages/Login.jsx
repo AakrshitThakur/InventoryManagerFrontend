@@ -64,10 +64,10 @@ export default function Login() {
       });
     }
   };
-  const HandleShowLoadingBar = (event) => {
+  const HandleShowLoadingBar = () => {
     SetShowLoadingBar(!ShowLoadingBar);
   };
-  const HandleSetShowPassword = (event) => {
+  const HandleSetShowPassword = () => {
     SetShowPassword((prev) => !prev);
   };
 

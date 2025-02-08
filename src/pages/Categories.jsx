@@ -91,8 +91,8 @@ export default function Categories() {
         <div
           className={
             IsDarkModeActive
-              ? "BoxAtDark bg-black text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
-              : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-3/4 lg:w-2/4 p-1 md:p-3 rounded"
+              ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
+              : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
           }
         >
           <div>

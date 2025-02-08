@@ -95,8 +95,8 @@ export default function Category() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black text-center w-3/4 lg:w-2/3 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-3/4 lg:w-2/3 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2">
