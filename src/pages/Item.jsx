@@ -71,7 +71,13 @@ export default function Shop() {
   }, []);
 
   return (
-    <div className="shop flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="shop relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div
         className={
           IsDarkModeActive
@@ -94,25 +100,68 @@ export default function Shop() {
                   : "BoxShadowAtLight container mx-auto mb-1 p-2 sm:mb-2 sm:p-3 md:mb-2 md:p-3 rounded"
               }
             >
-              <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">{item.ItemName}(name)</h2>
-              <p className={IsDarkModeActive ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
-                {item.ItemDescription}<b className="text-xs md:text-sm lg:text-md">(description)</b>
+              <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
+                {item.ItemName}(name)
+              </h2>
+              <p
+                className={
+                  IsDarkModeActive
+                    ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                    : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                }
+              >
+                {item.ItemDescription}
+                <b className="text-xs md:text-sm lg:text-md">(description)</b>
               </p>
-              <p className={IsDarkModeActive ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
-                &#8377;{item.PerItemPurchasePrice}<b className="text-xs md:text-sm lg:text-md">(per item purchase price)</b>
+              <p
+                className={
+                  IsDarkModeActive
+                    ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                    : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                }
+              >
+                &#8377;{item.PerItemPurchasePrice}
+                <b className="text-xs md:text-sm lg:text-md">
+                  (per item purchase price)
+                </b>
               </p>
               <p className="leading-tight text-xs md:text-sm lg:text-md">
-                &#8377;{item.PerItemSellingPrice}<b className="text-xs md:text-sm lg:text-md">(per item selling price)</b>
+                &#8377;{item.PerItemSellingPrice}
+                <b className="text-xs md:text-sm lg:text-md">
+                  (per item selling price)
+                </b>
               </p>
               <img className="w-full rounded" src={item.ItemPath} alt="" />
-              <p className={IsDarkModeActive ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
-                {item.NoOfItems}<b className="text-xs md:text-sm lg:text-md">(no of items)</b>
+              <p
+                className={
+                  IsDarkModeActive
+                    ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                    : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                }
+              >
+                {item.NoOfItems}
+                <b className="text-xs md:text-sm lg:text-md">(no of items)</b>
               </p>
-              <p className={IsDarkModeActive ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
-                {item.PerItemSellingDiscount}&#37;<b className="text-xs md:text-sm lg:text-md">(per item discount)</b>
+              <p
+                className={
+                  IsDarkModeActive
+                    ? "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                    : "text-wrap leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                }
+              >
+                {item.PerItemSellingDiscount}&#37;
+                <b className="text-xs md:text-sm lg:text-md">
+                  (per item discount)
+                </b>
               </p>
               {item.StockStatus == "Available" ? (
-                <p className={IsDarkModeActive ? "text wrap leading-none BorderBottomAtDark border-b text-green-700 text-xs md:text-sm lg:text-md" : "text wrap leading-none BorderBottomAtLight border-b text-green-700 text-xs md:text-sm lg:text-md"}>
+                <p
+                  className={
+                    IsDarkModeActive
+                      ? "text wrap leading-none BorderBottomAtDark border-b text-green-700 text-xs md:text-sm lg:text-md"
+                      : "text wrap leading-none BorderBottomAtLight border-b text-green-700 text-xs md:text-sm lg:text-md"
+                  }
+                >
                   {item.StockStatus}
                   <span
                     className={
@@ -121,7 +170,9 @@ export default function Shop() {
                         : "leading-none text-black text-xs md:text-sm lg:text-md"
                     }
                   >
-                    <b className="text-xs md:text-sm lg:text-md">(stock status)</b>
+                    <b className="text-xs md:text-sm lg:text-md">
+                      (stock status)
+                    </b>
                   </span>
                 </p>
               ) : (
@@ -134,7 +185,9 @@ export default function Shop() {
                         : "leading-tight text-black text-xs md:text-sm lg:text-md"
                     }
                   >
-                    <b className="text-xs md:text-sm lg:text-md">(stock status)</b>
+                    <b className="text-xs md:text-sm lg:text-md">
+                      (stock status)
+                    </b>
                   </span>
                 </p>
               )}
@@ -148,7 +201,9 @@ export default function Shop() {
                         : "text-wrap leading-none text-black text-xs md:text-sm lg:text-md"
                     }
                   >
-                    <b className="text-xs md:text-sm lg:text-md">(stock status)</b>
+                    <b className="text-xs md:text-sm lg:text-md">
+                      (stock status)
+                    </b>
                   </span>
                 </p>
               ) : (
@@ -161,7 +216,9 @@ export default function Shop() {
                         : "leading-tight text-black text-xs md:text-sm lg:text-md"
                     }
                   >
-                    <b className="text-xs md:text-sm lg:text-md">(stock status)</b>
+                    <b className="text-xs md:text-sm lg:text-md">
+                      (stock status)
+                    </b>
                   </span>
                 </p>
               )}

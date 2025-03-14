@@ -26,7 +26,9 @@ export default function NewItem() {
     StockStatus: "",
     PaymentStatus: "",
   });
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
 
   const { id, CategoryID } = useParams();
@@ -118,7 +120,13 @@ export default function NewItem() {
   }, []);
 
   return (
-    <div className="NewItem bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1">
+    <div className="NewItem relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div className="flex flex-col justify-center items-center p-1 md:p-3">
         <div
           className={

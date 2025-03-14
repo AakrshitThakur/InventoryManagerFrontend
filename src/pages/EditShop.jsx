@@ -122,7 +122,13 @@ export default function EditShop() {
   }, []);
 
   return (
-    <div className="EditShop bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="EditShop relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+            {/* To go to previous page */}
+            <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div
         className={
           IsDarkMode

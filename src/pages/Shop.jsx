@@ -73,7 +73,12 @@ export default function Shop() {
   }, []);
 
   return (
-    <div className="shop flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="shop relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div
         className={
           IsDarkModeActive
@@ -100,17 +105,27 @@ export default function Shop() {
                 {shop.ShopName}
               </h2>
               <img className="w-full rounded" src={shop.ShopImgURL} alt="" />
-              <p className={IsDarkModeActive ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
+              <p
+                className={
+                  IsDarkModeActive
+                    ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                    : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                }
+              >
                 <b>{shop.author}(owner)</b>
               </p>
-              <p className={IsDarkModeActive ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b" : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"}>
-                {shop.description}{" "}
-                <b className="leading-none">(description)</b>
+              <p
+                className={
+                  IsDarkModeActive
+                    ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                    : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                }
+              >
+                {shop.description} <b className="leading-none">(description)</b>
               </p>
               <p className="leading-none text-xs md:text-sm lg:text-md">
                 <address>
-                  {shop.address}{" "}
-                  <b className="leading-none">(address)</b>
+                  {shop.address} <b className="leading-none">(address)</b>
                 </address>
               </p>
               <div className="flex justify-around mt-1">

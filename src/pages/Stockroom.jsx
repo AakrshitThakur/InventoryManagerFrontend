@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 import "../CSS/Stockroom.css";
 
@@ -7,7 +7,11 @@ export default function Stockroom() {
   // Matching id from URL using useParams() hook
   const { id } = useParams();
 
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const navigate = useNavigate();
+
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   useEffect(() => {
     // Setting observer to check HTML dark class
@@ -16,7 +20,12 @@ export default function Stockroom() {
   }, []);
 
   return (
-    <div className="stockroom flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="stockroom relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div
         className={
           IsDarkModeActive
@@ -31,13 +40,6 @@ export default function Stockroom() {
           <button className="block w-full text-xs md:text-sm lg:text-md TangerineColor text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
             <a className="w-full" href={`/shops/${id}/stockroom/categories`}>
               View categories
-            </a>
-          </button>
-        </div>
-        <div>
-          <button className="block w-full text-xs md:text-sm lg:text-md bg-red-400 text-black rounded px-1 py-1 md:px-2 md:py-2">
-            <a className="w-full" href={`/shops/${id}`}>
-              Go back
             </a>
           </button>
         </div>

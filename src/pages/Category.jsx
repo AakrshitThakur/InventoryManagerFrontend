@@ -90,7 +90,13 @@ export default function Category() {
   }, [navigate, location.state]);
 
   return (
-    <div className="category flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="category relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
       <div
         className={

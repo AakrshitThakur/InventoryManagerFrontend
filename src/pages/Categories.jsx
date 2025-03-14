@@ -19,7 +19,9 @@ export default function Categories() {
   location.state && (MsgObj = location.state);
 
   const [categories, SetCategories] = useState([]);
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   useEffect(() => {
     // Setting observer to check HTML dark class
@@ -86,69 +88,65 @@ export default function Categories() {
 
   return (
     // flex flex-col justify-center items-center
-    <div className="Categories flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
-      {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
-        <div
-          className={
-            IsDarkModeActive
-              ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
-              : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
-          }
-        >
-          <div>
-            <button className="block w-full PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
-              <a
-                className="w-full leading-none text-xs md:text-sm lg:text-md"
-                href={`/shops/${id}/stockroom/categories/new`}
-              >
-                Create a new category
-              </a>
-            </button>
-          </div>
-          <div>
-            <button className="block w-full text-xs md:text-sm lg:text-md bg-red-400 text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
-              <a
-                className="w-full leading-none text-xs md:text-sm lg:text-md"
-                href={`/shops/${id}/stockroom`}
-              >
-                Go back
-              </a>
-            </button>
-          </div>
-          <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2">
-            Your categories
-          </h1>
-          <ul className="w-9/12 text-left">
-            {categories.length == 0 && (
-              <li>
-                <p className="mx-auto leading-none text-xs md:text-sm lg:text-md m-1">
-                  No categories were found in this shop. Please create new
-                  categories or go to a different shop.
-                </p>
-              </li>
-            )}
-            {categories.map((category) => (
-              <a href={`/shops/${id}/stockroom/categories/${category._id}`}>
-                <li
-                  className={
-                    IsDarkModeActive
-                      ? "BoxAtDark container HoverOnListsForDark mx-auto p-1 md:p-2 mb-1 rounded"
-                      : "BoxAtLight container HoverOnListsForLight mx-auto p-1 md:p-2 mb-1 rounded"
-                  }
-                  key={inc++}
-                >
-                  <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                    {category.CategoryName}
-                  </h2>
-                  <p className="text-wrap leading-none text-xs md:text-sm lg:text-md">
-                    {category.CategoryDescription}
-                  </p>
-                  <em className="text-xs leading-none">Tab to view</em>
-                </li>
-              </a>
-            ))}
-          </ul>
-        </div>
+    <div className="Categories relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
       </div>
+      {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
+      <div
+        className={
+          IsDarkModeActive
+            ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
+            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
+        }
+      >
+        <div>
+          <button className="block w-full PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+            <a
+              className="w-full leading-none text-xs md:text-sm lg:text-md"
+              href={`/shops/${id}/stockroom/categories/new`}
+            >
+              Create a new category
+            </a>
+          </button>
+        </div>
+        <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2">
+          Your categories
+        </h1>
+        <ul className="w-9/12 text-left">
+          {categories.length == 0 && (
+            <li>
+              <p className="mx-auto leading-none text-xs md:text-sm lg:text-md m-1">
+                No categories were found in this shop. Please create new
+                categories or go to a different shop.
+              </p>
+            </li>
+          )}
+          {categories.map((category) => (
+            <a href={`/shops/${id}/stockroom/categories/${category._id}`}>
+              <li
+                className={
+                  IsDarkModeActive
+                    ? "BoxAtDark container HoverOnListsForDark mx-auto p-1 md:p-2 mb-1 rounded"
+                    : "BoxAtLight container HoverOnListsForLight mx-auto p-1 md:p-2 mb-1 rounded"
+                }
+                key={inc++}
+              >
+                <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
+                  {category.CategoryName}
+                </h2>
+                <p className="text-wrap leading-none text-xs md:text-sm lg:text-md">
+                  {category.CategoryDescription}
+                </p>
+                <em className="text-xs leading-none">Tab to view</em>
+              </li>
+            </a>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

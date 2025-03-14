@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode";
 import axios from "axios";
 import "../CSS/GraphAnalyses.css";
@@ -24,6 +24,8 @@ export default function GraphAnalyses() {
   const [IsDarkModeActive, SetIsDarkModeActive] = useState(
     localStorage.getItem("DarkMode") === "true"
   );
+
+  const navigate = useNavigate();
 
   // Colors needed for pie chart
   const COLORS = ["#013357", "#f4930d"];
@@ -115,7 +117,13 @@ export default function GraphAnalyses() {
   }, []);
 
   return (
-    <div className="GraphicalAnalysisflex flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="GraphicalAnalysisflex relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div
         className={
           IsDarkModeActive

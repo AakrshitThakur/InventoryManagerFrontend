@@ -12,7 +12,9 @@ export default function CreateNewCategory() {
     CategoryName: "",
     CategoryDescription: "",
   });
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
 
   const { id } = useParams();
@@ -85,7 +87,13 @@ export default function CreateNewCategory() {
   }, []);
 
   return (
-    <div className="NewCategory bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-3">
+    <div className="NewCategory relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1 md:p-3">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+        <button onClick={() => navigate(-1)}>
+          <img src="/icons/BackArrow.png" alt="" />
+        </button>
+      </div>
       <div
         className={
           IsDarkModeActive
