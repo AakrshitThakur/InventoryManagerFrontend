@@ -60,17 +60,17 @@ export default function Shops() {
   }, []);
 
   return (
-    <div className="ViewMyShops relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="ViewMyShops relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
         }
       >
         {MyShops.length != 0 ? (

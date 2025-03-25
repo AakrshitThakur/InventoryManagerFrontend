@@ -56,17 +56,17 @@ export default function Logout() {
   }, []);
 
   return (
-    <div className="logout relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover flex-1 flex flex-col justify-center items-center p-1">
+    <div className="logout relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1">
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BackArrow.png" alt="" />
+          <img src="/icons/BlackBackArrow.png" alt="" />
         </button>
       </div>
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black p-1 md:p-3 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md p-1 md:p-3 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm p-1 md:p-3 rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm p-1 md:p-3 rounded"
         }
       >
         <h1 className="text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2">

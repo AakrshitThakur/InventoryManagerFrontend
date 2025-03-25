@@ -88,19 +88,19 @@ export default function Categories() {
 
   return (
     // flex flex-col justify-center items-center
-    <div className="Categories relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="Categories relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
       {/* To go to previous page */}
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-3 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
         }
       >
         <div>

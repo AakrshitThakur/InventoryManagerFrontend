@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode.js";
 import ToastMsg from "../components/ToastMsg.jsx";
 import "../CSS/LoadingPageSpinner.css";
+import "../CSS/Shops.css"
 import axios from "axios";
 
 let inc = 1;
@@ -65,14 +66,14 @@ export default function Shops() {
   }, [navigate, location.state]);
 
   return (
-    <div className="shops flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="shops flex flex-col justify-center items-center flex-1 bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center p-1">
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
 
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
         }
       >
         {AllShops.length == 0 ? (

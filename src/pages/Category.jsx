@@ -90,19 +90,19 @@ export default function Category() {
   }, [navigate, location.state]);
 
   return (
-    <div className="category relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="category relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
       {/* To go to previous page */}
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black text-center w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md text-center w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
         }
       >
         <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2">
@@ -125,16 +125,6 @@ export default function Category() {
               href={`/shops/${id}/stockroom/categories/${CategoryID}/GraphAnalyses`}
             >
               Graph analyses
-            </a>
-          </button>
-        </div>
-        <div>
-          <button className="block w-full bg-red-400 text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
-            <a
-              className="w-full text-nowrap text-xs md:text-sm lg:text-md"
-              href={`/shops/${id}/stockroom/categories`}
-            >
-              Go back
             </a>
           </button>
         </div>

@@ -21,18 +21,18 @@ export default function GeneralError({ PageNotFoundError }) {
   }, []);
 
   return (
-    <div className="GeneralError relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-contain flex-1 p-1">
+    <div className="GeneralError relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
       {/* To go to previous page */}
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-black flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
-            : "BoxShadowAtLight bg-opacity-10 backdrop-blur-md flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm flex flex-col justify-center items-center p-1 sm:p-2 md:p-3 rounded"
         }
       >
         <em

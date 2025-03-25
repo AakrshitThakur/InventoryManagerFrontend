@@ -3,6 +3,11 @@
   font-optical-sizing: auto;
 }
 
+/* For Chrome, Safari, and other WebKit browsers */
+*::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
 .BoxShadowAtLight {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -14,16 +19,16 @@
   border: var(--DarkBorder);
 }
 
-.BorderBottomAtDark{
+.BorderBottomAtDark {
   border-bottom: var(--LightBorder);
 }
-.BorderBottomAtLight{
+.BorderBottomAtLight {
   border-bottom: var(--DarkBorder);
 }
 
-.HoverOnListsForLight:hover{
+.HoverOnListsForLight:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
-.HoverOnListsForDark:hover{
+.HoverOnListsForDark:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
