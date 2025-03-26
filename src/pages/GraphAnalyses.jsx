@@ -158,16 +158,6 @@ export default function GraphAnalyses() {
                 </a>
               </button>
             </div>
-            <div>
-              <button className="block w-full bg-red-400 text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
-                <a
-                  className="w-full text-nowrap text-xs md:text-sm lg:text-md"
-                  href={`/shops/${id}/stockroom/categories/${CategoryID}`}
-                >
-                  Go back
-                </a>
-              </button>
-            </div>
             {GraphAnalysesData.length == 0 ? (
               <div className="text-wrap leading-none text-xs md:text-sm lg:text-md">
                 <p>Please add items in this category to view graph analyses</p>
