@@ -11,7 +11,7 @@ export default function CreateShop() {
   // To navigate user to the "/shops/:id" route
   const navigate = useNavigate();
 
-  const [IsDarkMode, SetIsDarkMode] = useState(
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
     localStorage.getItem("DarkMode") === "true"
   );
   const [ShowLoadingBar, SetShowLoadingBar] = useState(false);
@@ -86,7 +86,7 @@ export default function CreateShop() {
 
   useEffect(() => {
     // Setting observer to check HTML dark class
-    const observer = CheckDarkMode(SetIsDarkMode);
+    const observer = CheckDarkMode(SetIsDarkModeActive);
     return () => observer.disconnect();
   }, []);
 
@@ -116,7 +116,7 @@ export default function CreateShop() {
               </h2>
               <input
                 className={
-                  IsDarkMode
+                  IsDarkModeActive
                     ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
                     : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
@@ -132,7 +132,7 @@ export default function CreateShop() {
               </h2>
               <input
                 className={
-                  IsDarkMode
+                  IsDarkModeActive
                     ? "BoxAtDark sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
                     : "BoxAtLight sm:h-7 w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
@@ -148,7 +148,7 @@ export default function CreateShop() {
               </h2>
               <input
                 className={
-                  IsDarkMode
+                  IsDarkModeActive
                     ? "BoxAtDark text-xs md:text-sm lg:text-md bg-white text-black"
                     : "BoxAtLight text-xs md:text-sm lg:text-md"
                 }
@@ -163,7 +163,7 @@ export default function CreateShop() {
               </h2>
               <textarea
                 className={
-                  IsDarkMode
+                  IsDarkModeActive
                     ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
                     : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
@@ -178,7 +178,7 @@ export default function CreateShop() {
               </h2>
               <textarea
                 className={
-                  IsDarkMode
+                  IsDarkModeActive
                     ? "BoxAtDark w-10/12 p-1 text-xs md:text-sm lg:text-md text-black"
                     : "BoxAtLight w-10/12 p-1 text-xs md:text-sm lg:text-md"
                 }
