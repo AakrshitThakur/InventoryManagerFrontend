@@ -75,7 +75,7 @@ export default function Shop() {
       {/* To go to previous page */}
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div
