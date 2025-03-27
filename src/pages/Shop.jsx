@@ -128,14 +128,14 @@ export default function Shop() {
                   {shop.address} <b className="leading-none">(address)</b>
                 </address>
               </p>
-              <div className="flex justify-around mt-1">
-                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
+              <div className="flex justify-around sm:flex-row flex-col mt-1">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md mb-1 sm:mb-0 px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
                   <a href="/shops">View all shops</a>
                 </button>
-                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 TangerineColor text-black rounded">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md mb-1 sm:mb-0 px-2 py-1 md:px-3 md:py-2 TangerineColor text-black rounded">
                   <a href={`/shops/${shop._id}/edit`}>Edit Shop</a>
                 </button>
-                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md mb-1 sm:mb-0 px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
                   <a href={`/shops/${id}/stockroom`}>Stockroom</a>
                 </button>
                 <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-red-400 text-black rounded">

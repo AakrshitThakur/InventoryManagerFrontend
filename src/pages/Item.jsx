@@ -223,20 +223,20 @@ export default function Shop() {
                 </p>
               )}
 
-              <div className="flex justify-around mt-1">
-                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
+              <div className="flex justify-around sm:flex-row flex-col mt-1">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md mb-1 sm:mb-0 px-2 py-1 md:px-3 md:py-2 bg-green-400 text-black rounded">
                   <a href={`/shops/${id}/stockroom/categories/${CategoryID}`}>
                     View all items
                   </a>
                 </button>
-                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 TangerineColor text-black rounded">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md mb-1 sm:mb-0 px-2 py-1 md:px-3 md:py-2 TangerineColor text-black rounded">
                   <a
                     href={`/shops/${id}/stockroom/categories/${CategoryID}/${ItemID}/edit`}
                   >
                     Edit item
                   </a>
                 </button>
-                <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
+                <button className="text-nowrap text-xs md:text-sm lg:text-md mb-1 sm:mb-0 px-2 py-1 md:px-3 md:py-2 PrussianBlueColor text-white rounded">
                   <a href={`/shops/${id}/stockroom`}>Stockroom</a>
                 </button>
                 <button className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-red-400 text-black rounded">

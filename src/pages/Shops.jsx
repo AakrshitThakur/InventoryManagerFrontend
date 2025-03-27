@@ -119,7 +119,7 @@ export default function Shops() {
               placeholder="Search here..."
             />
           </div>
-          <div>
+          <div className="mb-1">
             <select
               className={
                 IsDarkModeActive
