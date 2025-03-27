@@ -104,7 +104,7 @@ export default function Shops() {
             : "BoxShadowAtLight grid place-items-center bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
         }
       >
-        <div className="w-3/4 sm:w-2/3 md:w-1/2 mb-1">
+        <div className="w-3/4 sm:w-2/3 md:w-1/2">
           <div className="mb-1">
             <input
               className={
@@ -123,8 +123,8 @@ export default function Shops() {
             <select
               className={
                 IsDarkModeActive
-                  ? "BoxAtDark sm:h-7 w-1/2 mr-1 p-1 text-xs md:text-sm lg:text-md text-black"
-                  : "BoxAtLight sm:h-7 w-1/2 mr-1 p-1 text-xs md:text-sm lg:text-md"
+                  ? "BoxAtDark sm:h-7 w-1/2 mr-1 p-1 text-xs md:text-sm lg:text-md text-black rounded"
+                  : "BoxAtLight sm:h-7 w-1/2 mr-1 p-1 text-xs md:text-sm lg:text-md rounded"
               }
               name="FilterBy"
               value={search.FilterBy}
@@ -142,7 +142,7 @@ export default function Shops() {
             </button>
           </div>
           <h2 className="text-lg md:text-xl lg:text-2xl text-center leading-none">
-            Search for shopkeepers to get interacted with them!
+            Search for shopkeepers to interact with them!
           </h2>
         </div>
 
