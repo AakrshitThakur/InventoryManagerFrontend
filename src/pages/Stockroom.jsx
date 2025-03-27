@@ -29,8 +29,8 @@ export default function Stockroom() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-2/3 p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-3/4 p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-3/4 p-1 md:p-2 rounded"
         }
       >
         <h1 className="text-nowrap text-center text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-3">

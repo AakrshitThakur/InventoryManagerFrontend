@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CheckDarkMode } from "../JS_Utils/CheckDarkMode.js";
 import ToastMsg from "../components/ToastMsg.jsx";
 import "../CSS/LoadingPageSpinner.css";
-import "../CSS/Shops.css"
+import "../CSS/Shops.css";
 import axios from "axios";
 
 let inc = 1;
@@ -17,16 +17,39 @@ export default function Shops() {
   location.state && (MsgObj = location.state);
 
   const [AllShops, SetAllShops] = useState([]);
+
+  // State used for search operations
+  const [search, SetSearch] = useState({
+    SearchString: "",
+    FilterBy: "owner",
+  });
   const [IsDarkModeActive, SetIsDarkModeActive] = useState(
     localStorage.getItem("DarkMode") === "true"
   );
 
+  // Clearing the SearchString and FilterBy property values of the search object to their default values
+  const clear = () => {
+    SetSearch({
+      SearchString: "",
+      FilterBy: "owner",
+    });
+  };
+
+  const HandleSetSearch = (name, value) => {
+    SetSearch((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Searching for the relevent results. Executed when search object is changed.
   useEffect(() => {
-    const FetchAPI = async () => {
+    const SearchResults = async () => {
+      const response = await axios.get(`https://inventorymanagerbackend.onrender.com/shops`, {
+        params: {
+          SearchString: search.SearchString,
+          FilterBy: search.FilterBy,
+        },
+        withCredentials: true,
+      });
       try {
-        const response = await axios.get(
-          "https://inventorymanagerbackend.onrender.com/shops"
-        );
         if (response.data.GeneralError) {
           navigate("/GeneralError", {
             state: {
@@ -46,8 +69,13 @@ export default function Shops() {
         });
       }
     };
-    FetchAPI();
-  }, []);
+    SearchResults();
+  }, [search]);
+ 
+  const HandleOnChange = async (event) => {
+    const { name, value } = event.target;
+    HandleSetSearch(name, value);
+  };
 
   // Getting the reference of MutationObserver obj to observe darkmode class of HTML element
   useEffect(() => {
@@ -72,22 +100,55 @@ export default function Shops() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
-            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 p-1 md:p-2 h-screen overflow-y-auto rounded"
+            ? "BoxAtDark grid place-items-center bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
+            : "BoxShadowAtLight grid place-items-center bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
         }
       >
-        {AllShops.length == 0 ? (
-          <div className="grid place-items-center h-screen">
-            <span
-              className={IsDarkModeActive ? "SpinnerAtDark" : "SpinnerAtLight"}
-            ></span>
+        <div className="w-3/4 sm:w-2/3 md:w-1/2 mb-1">
+          <div className="mb-1">
+            <input
+              className={
+                IsDarkModeActive
+                  ? "BoxAtDark w-full p-5 rounded text-lg md:text-xl lg:text-2xl bg-white text-black"
+                  : "BoxAtLight w-full p-5 rounded text-lg md:text-xl lg:text-2xl"
+              }
+              name="SearchString"
+              value={search.SearchString}
+              onChange={HandleOnChange}
+              type="text"
+              placeholder="Search here..."
+            />
           </div>
-        ) : (
+          <div>
+            <select
+              className={
+                IsDarkModeActive
+                  ? "BoxAtDark sm:h-7 w-1/2 mr-1 p-1 text-xs md:text-sm lg:text-md text-black"
+                  : "BoxAtLight sm:h-7 w-1/2 mr-1 p-1 text-xs md:text-sm lg:text-md"
+              }
+              name="FilterBy"
+              value={search.FilterBy}
+              onChange={HandleOnChange}
+            >
+              <option value="owner">Owner</option>
+              <option value="ShopName">Shop-name</option>
+              <option value="address">Address</option>
+            </select>
+            <button
+              className="text-nowrap text-xs md:text-sm lg:text-md px-2 py-1 md:px-3 md:py-2 bg-red-400 text-black rounded"
+              onClick={clear}
+            >
+              Clear
+            </button>
+          </div>
+          <h2 className="text-lg md:text-xl lg:text-2xl text-center leading-none">
+            Search for shopkeepers to get interacted with them!
+          </h2>
+        </div>
+
+        {AllShops.length > 0 && (
           <>
-            <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2 md:mb-3">
-              Viewing All Shops
-            </h1>
-            <ul>
+            <ul className="w-11/12">
               {AllShops.map((shop) => (
                 <li
                   className={
