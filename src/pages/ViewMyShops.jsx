@@ -61,7 +61,7 @@ export default function Shops() {
 
   return (
     <div className="ViewMyShops relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
           <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>

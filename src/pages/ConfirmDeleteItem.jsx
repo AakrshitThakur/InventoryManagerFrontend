@@ -71,11 +71,11 @@ export default function ConfirmDeleteItem() {
   }, []);
 
   return (
-    <div className="ConfirmDeleteItem relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="ConfirmDeleteItem relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-2">
       {/* To go to previous page */}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BlackBackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div

@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
+import PopupMenu from "./PopupMenu";
 import DarkMode from "./DarkMode.jsx";
 import "../CSS/Navbar.css";
 
 export default function Navbar() {
   // Toggle mobile menu
-  const [IsMobileMenuOpen, SetIsMobileMenuOpen] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsMobileMenuOpen, SetIsMobileMenuOpen] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
 
   const ToggleMobileMenu = () => {
     SetIsMobileMenuOpen(!IsMobileMenuOpen);
   };
 
   // Checking if dark mode is active or not
-  const [IsDarkModeActive, SetIsDarkModeActive] = useState(localStorage.getItem("DarkMode") === "true");
+  const [IsDarkModeActive, SetIsDarkModeActive] = useState(
+    localStorage.getItem("DarkMode") === "true"
+  );
   useEffect(() => {
     const observer = new MutationObserver(() => {
       SetIsDarkModeActive(document.documentElement.classList.contains("dark"));
@@ -58,12 +63,6 @@ export default function Navbar() {
                   : "DesktopLinksLight hidden md:flex items-center space-x-4"
               }
             >
-              <button className="PrussianBlueColor text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-white rounded px-1 md:py-1 md:px-2">
-                <a href="/shops/create">Create shop</a>
-              </button>
-              <button className="TangerineColor text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black rounded px-1 md:py-1 md:px-2">
-                <a href="/shops/ViewMyShops">View my shops</a>
-              </button>
               <button className="bg-green-400 text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black rounded px-1 md:py-1 md:px-2">
                 <a href="/signup">Sign up</a>
               </button>
@@ -73,6 +72,7 @@ export default function Navbar() {
               <button className="bg-red-400 text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black rounded px-1 md:py-1 md:px-2">
                 <a href="/logout">Log out</a>
               </button>
+              <PopupMenu />
               <DarkMode />
             </div>
             {/* Hamburger menu button for smaller screens  */}
@@ -80,7 +80,11 @@ export default function Navbar() {
               <button
                 id="menu-button"
                 onClick={ToggleMobileMenu}
-                className={IsDarkModeActive ? "MenuBtnDark text-white focus:outline-none" : "MenuBtnLight text-black focus:outline-none"}
+                className={
+                  IsDarkModeActive
+                    ? "MenuBtnDark text-white focus:outline-none"
+                    : "MenuBtnLight text-black focus:outline-none"
+                }
               >
                 <svg
                   className="w-6 h-6"
@@ -115,6 +119,12 @@ export default function Navbar() {
             </button>
             <button className="TangerineColor text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black mb-1 rounded">
               <a href="/shops/ViewMyShops">View my shops</a>
+            </button>
+            <button className="TangerineColor text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black mb-1 rounded">
+              <a href="/reqs/ViewReqsReceived">View reqs received</a>
+            </button>
+            <button className="TangerineColor text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black mb-1 rounded">
+              <a href="/reqs/ViewSentReqs">View sent reqs</a>
             </button>
             <button className="bg-green-400 text-nowrap text-xs sm:text-sm md:text-md lg:text-lg text-black mb-1 rounded">
               <a href="/signup">Sign up</a>

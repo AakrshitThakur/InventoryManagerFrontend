@@ -48,15 +48,6 @@ export default function Category() {
               status: response.data.AuthenticationError.status,
             },
           });
-        } else if (response.data.AuthorizationError) {
-          // Authorization error
-          // Navigate to '/shops' if an authorization issue is detected.
-          navigate("/shops", {
-            state: {
-              msg: response.data.AuthorizationError.msg,
-              status: response.data.AuthorizationError.status,
-            },
-          });
         } else if (response.data.GeneralError) {
           navigate("/GeneralError", {
             state: {
@@ -92,7 +83,7 @@ export default function Category() {
   return (
     <div className="category relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
       {/* To go to previous page */}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
           <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
@@ -101,25 +92,23 @@ export default function Category() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-10/12 md:w-9/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-10/12 md:w-9/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
         }
       >
-        <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2">
+        <h1 className="text-nowrap text-center text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2">
           {category && category.CategoryName}
         </h1>
-        <div>
-          <button className="block w-full PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+        <div className="flex flex-col sm:justify-evenly sm:flex-row items-center mt-1">
+          <button className="w-10/12 sm:w-4/12 PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1 mr-1">
             <a
-              className="w-full text-nowrap text-xs md:text-sm lg:text-md"
+              className="sm:w-full text-nowrap text-xs md:text-sm lg:text-md"
               href={`/shops/${id}/stockroom/categories/${CategoryID}/new`}
             >
               Create a new item
             </a>
           </button>
-        </div>
-        <div>
-          <button className="block w-full TangerineColor text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+          <button className="w-10/12 sm:w-4/12 TangerineColor text-black rounded px-1 py-1 md:px-2 md:py-2 mb-1">
             <a
               className="w-full text-nowrap text-xs md:text-sm lg:text-md"
               href={`/shops/${id}/stockroom/categories/${CategoryID}/GraphAnalyses`}
@@ -133,7 +122,7 @@ export default function Category() {
             IsDarkModeActive ? "ItemsAtDark mt-1" : "ItemsAtLight mt-1"
           }
         >
-          <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
+          <h2 className="text-nowrap text-start text-lg md:text-xl lg:text-2xl">
             Your items
           </h2>
           <ul>
@@ -171,7 +160,13 @@ export default function Category() {
                       </div>
                       <div className="flex flex-col justify-center pt-1 md:pt-0 md:pl-2 md:w-2/3">
                         <div>
-                          <p className="text-wrap leading-none text-xs md:text-sm lg:text-md">
+                          <p
+                            className={
+                              IsDarkModeActive
+                                ? "leading-none text-xs md:text-sm lg:text-md BorderBottomAtDark border-b"
+                                : "leading-none text-xs md:text-sm lg:text-md BorderBottomAtLight border-b"
+                            }
+                          >
                             {item.ItemDescription}
                           </p>
                           <div>

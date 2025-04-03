@@ -11,7 +11,22 @@
 
 .TangerineColor {
   background-color: var(--TangerineColor);
+  /* background: linear-gradient(
+    135deg,
+    rgb(244, 147, 13) 50%,
+    rgb(1, 51, 87) 100%
+  ); */
 }
+
+/* Sunset Horizon */
 .PrussianBlueColor {
   background-color: var(--PrussianBlueColor);
+  /* background: linear-gradient(
+    135deg,
+    rgb(1, 51, 87) 30%,
+    rgb(244, 147, 13) 100%
+  ); */
+  /* background: linear-gradient(135deg, #0f0f0f, #3c3c3c, #7a7a7a); */
+/* background-color: #8b3dff; */
+
 }

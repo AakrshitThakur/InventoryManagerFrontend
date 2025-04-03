@@ -44,7 +44,39 @@ export default function EditShop() {
         `https://inventorymanagerbackend.onrender.com/shops/${id}/edit`,
         FormDataForSubmission
       );
-      navigate(`/shops/${response.data.ShopID}`);
+      if (response.data.AuthenticationError) {
+        // Authentication error
+        // Navigate to '/shops' if an authentication verification issue is detected.
+        navigate("/shops", {
+          state: {
+            msg: response.data.AuthenticationError.msg,
+            status: response.data.AuthenticationError.status,
+          },
+        });
+      } else if (response.data.GeneralError) {
+        navigate("/GeneralError", {
+          state: {
+            msg: response.data.GeneralError.msg || "Oops! Something went wrong",
+            StatusCode: response.data.GeneralError.StatusCode,
+          },
+        });
+      } else if (response.data.AuthorizationError) {
+        // Authorization error
+        // Navigate to '/shops' if an authorization issue is detected.
+        navigate("/shops", {
+          state: {
+            msg: response.data.AuthorizationError.msg,
+            status: response.data.AuthorizationError.status,
+          },
+        });
+      } else if (response.data.SuccessMsg) {
+        navigate(`/shops/${id}/`, {
+          state: {
+            msg: response.data.SuccessMsg,
+            status: "success",
+          },
+        });
+      }
     } catch (FrontendError) {
       console.error(FrontendError.message);
       navigate("/GeneralError", {
@@ -61,9 +93,7 @@ export default function EditShop() {
     // Fetching API data form server
     const FetchAPI = async () => {
       try {
-        const response = await axios.get(
-          `https://inventorymanagerbackend.onrender.com/shops/${id}`
-        );
+        const response = await axios.get(`https://inventorymanagerbackend.onrender.com/shops/${id}`);
         if (response.data.AuthenticationError) {
           // Authentication error
           // Navigate to '/shops' if an authentication verification issue is detected.
@@ -122,16 +152,16 @@ export default function EditShop() {
   }, []);
 
   return (
-    <div className="EditShop relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-2">
-            {/* To go to previous page */}
-            <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+    <div className="EditShop relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+      {/* To go to previous page */}
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
           <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div
         className={
-          IsDarkModeActive
+          IsDarkMode
             ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm p-1 md:p-3 rounded"
             : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm p-1 md:p-3 rounded"
         }

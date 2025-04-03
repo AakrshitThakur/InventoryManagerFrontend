@@ -155,11 +155,11 @@ export default function SignUp() {
   }, [navigate, location.state]);
 
   return (
-    <div className="SignUp relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-2">
+    <div className="SignUp relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-2">
       {MsgObj && <ToastMsg msg={MsgObj.msg} status={MsgObj.status} />}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BlackBackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div
@@ -205,7 +205,7 @@ export default function SignUp() {
               required
             />
           </div>
-          <div className="mb-1">
+          <div>
             <h2 className="text-lg md:text-xl lg:text-2xl leading-none">
               Enter your password{" "}
             </h2>

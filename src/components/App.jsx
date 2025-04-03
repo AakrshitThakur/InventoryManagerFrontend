@@ -14,6 +14,9 @@ import Category from "../pages/Category.jsx";
 import CreateNewCategory from "../pages/CreateNewCategory.jsx";
 import NewItem from "../pages/CreateNewItem.jsx";
 import Item from "../pages/Item.jsx";
+import SendReqMsg from "../pages/SendReqMsg.jsx";
+import ConfirmAcceptReq from "../pages/ConfirmAcceptReq.jsx";
+import ConfirmRejectReq from "../pages/ConfirmRejectReq.jsx";
 import EditItem from "../pages/EditItem.jsx";
 import ConfirmDeleteItem from "../pages/ConfirmDeleteItem.jsx";
 import SignUp from "../pages/SignUp.jsx";
@@ -23,6 +26,8 @@ import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import GeneralError from "../pages/GeneralError.jsx";
 import GraphAnalyses from "../pages/GraphAnalyses.jsx";
+import ViewReqsReceived from "../pages/ViewReqsReceived.jsx";
+import ViewSentReqs from "../pages/ViewSentReqs.jsx";
 import "../CSS/App.css";
 
 function App() {
@@ -69,6 +74,20 @@ function App() {
             path="/shops/:id/stockroom/categories/:CategoryID/:ItemID"
             element={<Item />}
           />
+          <Route
+            path="/shops/:id/stockroom/categories/:CategoryID/:ItemID/SendReqMsg"
+            element={<SendReqMsg />}
+          />
+          <Route
+            path="/reqs/:id/ConfirmRejectReq"
+            element={<ConfirmRejectReq />}
+          />
+          <Route
+            path="/reqs/:id/ConfirmAcceptReq"
+            element={<ConfirmAcceptReq />}
+          />
+          <Route path="/reqs/ViewReqsReceived" element={<ViewReqsReceived />} />
+          <Route path="/reqs/ViewSentReqs" element={<ViewSentReqs />} />
           <Route
             path="/shops/:id/stockroom/categories/:CategoryID/:ItemID/edit"
             element={<EditItem />}

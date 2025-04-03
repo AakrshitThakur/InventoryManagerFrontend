@@ -117,9 +117,9 @@ export default function GraphAnalyses() {
   }, []);
 
   return (
-    <div className="GraphicalAnalysisflex relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
+    <div className="GraphicalAnalysis relative flex flex-col justify-center items-center bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 p-1">
       {/* To go to previous page */}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
           <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
@@ -127,8 +127,8 @@ export default function GraphAnalyses() {
       <div
         className={
           IsDarkModeActive
-            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
-            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-10/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
+            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm w-11/12 sm:w-10/12 md:w-9/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
+            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm w-11/12 sm:w-10/12 md:w-9/12 h-[75vh] overflow-y-scroll p-1 md:p-2 rounded"
         }
       >
         {GraphAnalysesData.length == 0 ? (
@@ -138,18 +138,12 @@ export default function GraphAnalyses() {
             ></span>
           </div>
         ) : (
-          <div
-            className={
-              IsDarkModeActive
-                ? "BoxAtDark m-1 p-1 md:p-2 rounded"
-                : "BoxShadowAtLight m-1 p-1 md:p-2 rounded"
-            }
-          >
-            <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2">
+          <div>
+            <h1 className="text-nowrap text-center text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2">
               Viewing all graphs
             </h1>
-            <div>
-              <button className="block w-full PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
+            <div className="text-center">
+              <button className="w-10/12 sm:w-4/12 PrussianBlueColor text-white rounded px-1 py-1 md:px-2 md:py-2 mb-1">
                 <a
                   className="w-full text-nowrap text-xs md:text-sm lg:text-md"
                   href={`/shops/${id}/stockroom/categories/${CategoryID}/new`}
@@ -173,7 +167,7 @@ export default function GraphAnalyses() {
                   key={inc++}
                 >
                   <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                    Per item purchase price
+                    Item purchase price
                   </h2>
                   {IsDarkModeActive ? (
                     <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
@@ -232,7 +226,7 @@ export default function GraphAnalyses() {
                   key={inc++}
                 >
                   <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                    Per item selling price
+                    Item selling price
                   </h2>
                   {IsDarkModeActive ? (
                     <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">
@@ -291,7 +285,7 @@ export default function GraphAnalyses() {
                   key={inc++}
                 >
                   <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-                    Per item selling discount
+                    Item selling discount
                   </h2>
                   {IsDarkModeActive ? (
                     <div className="w-full h-40 sm:h-60 md:h-80 text-xs md:text-sm lg:text-md text-black">

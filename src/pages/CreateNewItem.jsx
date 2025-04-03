@@ -76,7 +76,7 @@ export default function NewItem() {
       } else if (response.data.AuthorizationError) {
         // Authorization error
         // Navigate to '/shops' if an authorization issue is detected.
-        navigate("/shops", {
+        navigate(`/shops/${id}/stockroom/categories/${CategoryID}/`, {
           state: {
             msg: response.data.AuthorizationError.msg,
             status: response.data.AuthorizationError.status,
@@ -120,21 +120,21 @@ export default function NewItem() {
   }, []);
 
   return (
-    <div className="NewItem relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover bg-center flex-1">
+    <div className="NewItem relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1">
       {/* To go to previous page */}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BlackBackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div className="flex flex-col justify-center items-center p-1 md:p-3">
-      <div
-        className={
-          IsDarkModeActive
-            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm p-1 md:p-3 rounded"
-            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm p-1 md:p-3 rounded"
-        }
-      >
+        <div
+          className={
+            IsDarkModeActive
+              ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm p-1 md:p-3 rounded"
+              : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm p-1 md:p-3 rounded"
+          }
+        >
           <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
             Creating a new item
           </h1>
@@ -175,7 +175,7 @@ export default function NewItem() {
               ></textarea>
             </div>
             <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-              Enter per item purchase price
+              Enter item's purchase price
             </h2>
             <div className="mb-1">
               <input
@@ -191,7 +191,7 @@ export default function NewItem() {
               />
             </div>
             <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-              Enter per item selling price
+              Enter item's selling price
             </h2>
             <div className="mb-1">
               <input
@@ -207,7 +207,7 @@ export default function NewItem() {
               />
             </div>
             <h2 className="text-nowrap text-lg md:text-xl lg:text-2xl">
-              Enter per item selling discount
+              Enter item's selling discount
             </h2>
             <div className="mb-1">
               <input

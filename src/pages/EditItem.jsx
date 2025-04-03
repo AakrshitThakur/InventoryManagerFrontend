@@ -84,10 +84,21 @@ export default function EditItem() {
             status: response.data.AuthorizationError.status,
           },
         });
-      } else if (response.data.ItemID) {
-        navigate(
-          `/shops/${id}/stockroom/categories/${CategoryID}/${response.data.ItemID}`
-        );
+      } else if (response.data.SuccessMsg) {
+        console.log(response.data.SuccessMsg);
+        navigate(`/shops/${id}/stockroom/categories/${CategoryID}/${ItemID}`, {
+          state: {
+            msg: response.data.SuccessMsg,
+            status: "success",
+          },
+        });
+      } else if (response.data.GeneralError) {
+        navigate("/GeneralError", {
+          state: {
+            msg: response.data.GeneralError.msg || "Oops! Something went wrong",
+            StatusCode: response.data.GeneralError.StatusCode,
+          },
+        });
       }
     } catch (FrontendError) {
       console.error(FrontendError.message);
@@ -175,21 +186,21 @@ export default function EditItem() {
   }, []);
 
   return (
-    <div className="NewItem relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover bg-center flex-1">
+    <div className="NewItem relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1">
       {/* To go to previous page */}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BlackBackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div className="flex flex-col justify-center items-center p-1 md:p-3">
-      <div
-        className={
-          IsDarkModeActive
-            ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm p-1 md:p-3 rounded"
-            : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm p-1 md:p-3 rounded"
-        }
-      >
+        <div
+          className={
+            IsDarkModeActive
+              ? "BoxAtDark bg-[rgba(0,0,0,0.75)] backdrop-blur-sm p-1 md:p-3 rounded"
+              : "BoxShadowAtLight bg-[rgba(255,255,255,0.55)] backdrop-blur-sm p-1 md:p-3 rounded"
+          }
+        >
           <h1 className="text-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
             Edit item
           </h1>

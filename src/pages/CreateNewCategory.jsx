@@ -48,7 +48,7 @@ export default function CreateNewCategory() {
       } else if (response.data.AuthorizationError) {
         // Authorization error
         // Navigate to '/shops' if an authorization issue is detected.
-        navigate("/shops", {
+        navigate(`/shops/${id}/stockroom/categories/`, {
           state: {
             msg: response.data.AuthorizationError.msg,
             status: response.data.AuthorizationError.status,
@@ -87,11 +87,11 @@ export default function CreateNewCategory() {
   }, []);
 
   return (
-    <div className="NewCategory relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-3">
+    <div className="NewCategory relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1 md:p-3">
       {/* To go to previous page */}
-      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
+      <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1 ml-1">
         <button onClick={() => navigate(-1)}>
-          <img src="/icons/BlackBackArrow.png" alt="" />
+          <img src="/icons/WhiteBackArrow.png" alt="" />
         </button>
       </div>
       <div
