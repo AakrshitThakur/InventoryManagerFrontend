@@ -39,40 +39,58 @@ export const CheckDarkMode = (SetIsDarkModeActive) => {
 };
 ```
 
-## React Router Configuration
+## Application Routes
 
-| Section             | Route Path                     | Component           | Description                                       |
-| ------------------- | ------------------------------ | ------------------- | ------------------------------------------------- |
-| **Shop Management** | `/shops`                       | `Shops`             | Main shops listing page (also serves as homepage) |
-|                     | `/shops/:id`                   | `Shop`              | Individual shop details view                      |
-|                     | `/shops/create`                | `CreateShop`        | Form to create a new shop                         |
-|                     | `/shops/:id/edit`              | `EditShop`          | Edit existing shop details                        |
-|                     | `/shops/:id/ConfirmDeleteShop` | `ConfirmDeleteShop` | Shop deletion confirmation dialog                 |
-|                     | `/shops/ViewMyShops`           | `ViewMyShops`       | Shops owned by current user                       |
+### Shop Management
 
-| **Stockroom** | `/shops/:id/stockroom` | `Stockroom` | Main stockroom dashboard for a shop |
-| | `/shops/:id/stockroom/categories` | `Categories` | List all categories in stockroom |
-| | `/shops/:id/stockroom/categories/new` | `CreateNewCategory` | Form to create new category |
+| Route                          | Component           | Description                      |
+| ------------------------------ | ------------------- | -------------------------------- |
+| `/`                            | `Shops`             | Homepage - displays shops        |
+| `/shops`                       | `Shops`             | Main shops listing page          |
+| `/shops/create`                | `CreateShop`        | Form to create a new shop        |
+| `/shops/:id`                   | `Shop`              | View details of a specific shop  |
+| `/shops/:id/edit`              | `EditShop`          | Edit a specific shop             |
+| `/shops/:id/ConfirmDeleteShop` | `ConfirmDeleteShop` | Confirmation for shop deletion   |
+| `/shops/ViewMyShops`           | `ViewMyShops`       | View shops owned by current user |
 
-| **Category Items** | `/shops/:id/stockroom/categories/:CategoryID` | `Category` | View items within a specific category |
-| | `/shops/:id/stockroom/categories/:CategoryID/new` | `NewItem` | Add new item to category |
-| | `/shops/:id/stockroom/categories/:CategoryID/:ItemID` | `Item` | View/edit specific item details |
-| | `/shops/:id/stockroom/categories/:CategoryID/:ItemID/edit` | `EditItem` | Modify existing item |
-| | `/shops/:id/stockroom/categories/:CategoryID/:ItemID/ConfirmDeleteItem` | `ConfirmDeleteItem` | Item deletion confirmation |
-| | `/shops/:id/stockroom/categories/:CategoryID/GraphAnalyses` | `GraphAnalyses` | Visual analytics for category items |
+### Stockroom Management
 
-| **Requests** | `/shops/:id/stockroom/categories/:CategoryID/:ItemID/SendReqMsg` | `SendReqMsg` | Send item request message |
-| | `/reqs/ViewReqsReceived` | `ViewReqsReceived` | View requests received by current user |
-| | `/reqs/ViewSentReqs` | `ViewSentReqs` | View requests sent by current user |
-| | `/reqs/:id/ConfirmAcceptReq` | `ConfirmAcceptReq` | Request acceptance confirmation |
-| | `/reqs/:id/ConfirmRejectReq` | `ConfirmRejectReq` | Request rejection confirmation |
+| Route                                                                   | Component           | Description                     |
+| ----------------------------------------------------------------------- | ------------------- | ------------------------------- |
+| `/shops/:id/stockroom`                                                  | `Stockroom`         | Main stockroom view for a shop  |
+| `/shops/:id/stockroom/categories`                                       | `Categories`        | List of categories in stockroom |
+| `/shops/:id/stockroom/categories/new`                                   | `CreateNewCategory` | Create a new category           |
+| `/shops/:id/stockroom/categories/:CategoryID`                           | `Category`          | View specific category          |
+| `/shops/:id/stockroom/categories/:CategoryID/new`                       | `NewItem`           | Add new item to category        |
+| `/shops/:id/stockroom/categories/:CategoryID/:ItemID`                   | `Item`              | View specific item              |
+| `/shops/:id/stockroom/categories/:CategoryID/:ItemID/edit`              | `EditItem`          | Edit specific item              |
+| `/shops/:id/stockroom/categories/:CategoryID/:ItemID/ConfirmDeleteItem` | `ConfirmDeleteItem` | Confirm item deletion           |
+| `/shops/:id/stockroom/categories/:CategoryID/:ItemID/SendReqMsg`        | `SendReqMsg`        | Send request message about item |
+| `/shops/:id/stockroom/categories/:CategoryID/GraphAnalyses`             | `GraphAnalyses`     | View analytics for category     |
 
-| **Authentication** | `/signup` | `SignUp` | User registration with OTP verification |
-| | `/login` | `Login` | User authentication |
-| | `/logout` | `Logout` | Session termination |
+### Request Management
 
-| **Error Handling** | `/GeneralError` | `GeneralError` | Custom error page (handles 404 and other errors) |
-| | `*` | `GeneralError` | Fallback route for unmatched paths (with PageNotFoundError flag) |
+| Route                        | Component          | Description                |
+| ---------------------------- | ------------------ | -------------------------- |
+| `/reqs/ViewReqsReceived`     | `ViewReqsReceived` | View received requests     |
+| `/reqs/ViewSentReqs`         | `ViewSentReqs`     | View sent requests         |
+| `/reqs/:id/ConfirmAcceptReq` | `ConfirmAcceptReq` | Confirm request acceptance |
+| `/reqs/:id/ConfirmRejectReq` | `ConfirmRejectReq` | Confirm request rejection  |
+
+### Authentication
+
+| Route     | Component | Description       |
+| --------- | --------- | ----------------- |
+| `/signup` | `SignUp`  | User registration |
+| `/login`  | `Login`   | User login        |
+| `/logout` | `Logout`  | User logout       |
+
+### Error Handling
+
+| Route           | Component      | Description          |
+| --------------- | -------------- | -------------------- |
+| `/GeneralError` | `GeneralError` | General error page   |
+| `*`             | `GeneralError` | 404 - Page not found |
 
 ## Run Locally
 
