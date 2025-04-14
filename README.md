@@ -6,9 +6,9 @@ Inventory Manager is a MERN stack-based website that helps users manage inventor
 
 ## Tech Stack
 
-**Client:** React, TailwindCSS
+**Client:** React.js, Tailwind.css
 
-**Server:** Node, Express
+**Server:** Node.js, Express.js
 
 **Database:** MongoDB Atlas
 
