@@ -39,6 +39,41 @@ export const CheckDarkMode = (SetIsDarkModeActive) => {
 };
 ```
 
+## React Router Configuration
+
+| Section             | Route Path                     | Component           | Description                                       |
+| ------------------- | ------------------------------ | ------------------- | ------------------------------------------------- |
+| **Shop Management** | `/shops`                       | `Shops`             | Main shops listing page (also serves as homepage) |
+|                     | `/shops/:id`                   | `Shop`              | Individual shop details view                      |
+|                     | `/shops/create`                | `CreateShop`        | Form to create a new shop                         |
+|                     | `/shops/:id/edit`              | `EditShop`          | Edit existing shop details                        |
+|                     | `/shops/:id/ConfirmDeleteShop` | `ConfirmDeleteShop` | Shop deletion confirmation dialog                 |
+|                     | `/shops/ViewMyShops`           | `ViewMyShops`       | Shops owned by current user                       |
+
+| **Stockroom** | `/shops/:id/stockroom` | `Stockroom` | Main stockroom dashboard for a shop |
+| | `/shops/:id/stockroom/categories` | `Categories` | List all categories in stockroom |
+| | `/shops/:id/stockroom/categories/new` | `CreateNewCategory` | Form to create new category |
+
+| **Category Items** | `/shops/:id/stockroom/categories/:CategoryID` | `Category` | View items within a specific category |
+| | `/shops/:id/stockroom/categories/:CategoryID/new` | `NewItem` | Add new item to category |
+| | `/shops/:id/stockroom/categories/:CategoryID/:ItemID` | `Item` | View/edit specific item details |
+| | `/shops/:id/stockroom/categories/:CategoryID/:ItemID/edit` | `EditItem` | Modify existing item |
+| | `/shops/:id/stockroom/categories/:CategoryID/:ItemID/ConfirmDeleteItem` | `ConfirmDeleteItem` | Item deletion confirmation |
+| | `/shops/:id/stockroom/categories/:CategoryID/GraphAnalyses` | `GraphAnalyses` | Visual analytics for category items |
+
+| **Requests** | `/shops/:id/stockroom/categories/:CategoryID/:ItemID/SendReqMsg` | `SendReqMsg` | Send item request message |
+| | `/reqs/ViewReqsReceived` | `ViewReqsReceived` | View requests received by current user |
+| | `/reqs/ViewSentReqs` | `ViewSentReqs` | View requests sent by current user |
+| | `/reqs/:id/ConfirmAcceptReq` | `ConfirmAcceptReq` | Request acceptance confirmation |
+| | `/reqs/:id/ConfirmRejectReq` | `ConfirmRejectReq` | Request rejection confirmation |
+
+| **Authentication** | `/signup` | `SignUp` | User registration with OTP verification |
+| | `/login` | `Login` | User authentication |
+| | `/logout` | `Logout` | Session termination |
+
+| **Error Handling** | `/GeneralError` | `GeneralError` | Custom error page (handles 404 and other errors) |
+| | `*` | `GeneralError` | Fallback route for unmatched paths (with PageNotFoundError flag) |
+
 ## Run Locally
 
 **⚠️ Important:** Make sure to use port 5173 if you haven't already configured the CORS origin according to your needs.
