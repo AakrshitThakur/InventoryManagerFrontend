@@ -42,7 +42,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             {/* Logo  */}
             <div className="mr-1 md:mr-2 flex flex-shrink-0">
-              <div className="BoxAtLight w-16 mr-1 rounded">
+              <div className="BoxAtLight w-14 md:w-16 mr-1 rounded">
                 <img
                   className="w-full rounded"
                   src="/icons/InventoryManagerLogo.jpeg"
