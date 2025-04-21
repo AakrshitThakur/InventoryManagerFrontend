@@ -91,7 +91,7 @@ export default function CreateShop() {
   }, []);
 
   return (
-    <div className="CreateShop relative bg-MobileCreateEditDeleteBgImg sm:bg-DesktopCreateEditDeleteBgImg bg-coverCreateOrEditPageBgImg bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1">
+    <div className="CreateShop relative bg-[url('/images/GeneralBgImg.png')] bg-cover bg-center flex-1 flex flex-col justify-center items-center p-1">
       {/* To go to previous page */}
       <div className="absolute top-0 left-0 w-5 sm:w-7 mt-1">
         <button onClick={() => navigate(-1)}>
